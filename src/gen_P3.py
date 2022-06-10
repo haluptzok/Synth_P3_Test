@@ -6,14 +6,15 @@ def load_json(filename):
         return json.load(f)
 
 # Convert json puzzles into src and test files for synth to process
-js_puzzles = load_json("397puzzles.json")
+# js_puzzles = load_json("397puzzles.json")
+js_puzzles = load_json("puzzles.json")
 
 # create files for src code and test code, write out header info to them
 f_src = open("src_gen_P3.py", "w", encoding="utf8")
 f_src.write("from typing import List\n\n")
 f_tst = open("test_gen_P3.py", "w", encoding="utf8")
 f_tst.write("from typing import List\n")
-f_tst.write("from src_P3 import *\n\n")
+f_tst.write("from src_gen_P3 import *\n\n")
 
 # Enumerate through all the puzzle records in the json file, generate src and test code
 for index, puzzle in enumerate(js_puzzles):
@@ -43,7 +44,7 @@ for index, puzzle in enumerate(js_puzzles):
 
     if sol_body.find("sat(") != -1:
         print("sol_body has sat( in it", index)
-        print(sol_body, "\n")
+        # print(sol_body, "\n")
         sol_body = sol_body.replace("sat(", f"sat{index}(")
 
     if sol_body.find("sol(") != -1:
