@@ -29,9 +29,6 @@ for puzzle in js_puzzles:
             f_src.close()
             f_tst.close()
 
-        print(file_index)
-        print("src_gen_" + str(file_index) + ".py")
-
         # create files for src code and test code, write out header info to them
         f_src = open("src_gen_" + str(file_index) + ".py", "w", encoding="utf8")
         f_src.write("from typing import List\n\n")

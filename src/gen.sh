@@ -1,12 +1,85 @@
 #!/bin/bash -x
 # generate the src and tests
 python gen_P3.py
-# Take a look at the code - look OK?
-# head -150 src_gen_P3.py
-# cat src_gen_P3.py
-# cat test_gen_P3.py
-# run the src code - make sure it works
-python src_gen_P3.py
-python test_gen_P3.py
-grep assert test_gen_P3.py | wc -l
-
+# run the src code
+python src_gen_0.py
+python src_gen_1.py
+python src_gen_2.py
+python src_gen_3.py
+python src_gen_4.py
+python src_gen_5.py
+python src_gen_6.py
+python src_gen_7.py
+python src_gen_8.py
+python src_gen_9.py
+python src_gen_10.py
+python src_gen_11.py
+python src_gen_12.py
+python src_gen_13.py
+python src_gen_14.py
+python src_gen_15.py
+python src_gen_16.py
+python src_gen_17.py
+python src_gen_18.py
+python src_gen_19.py
+python src_gen_20.py
+python src_gen_21.py
+python src_gen_22.py
+python src_gen_23.py
+python src_gen_24.py
+python src_gen_25.py
+python src_gen_26.py
+python src_gen_27.py
+python src_gen_28.py
+python src_gen_29.py
+python src_gen_30.py
+python src_gen_31.py
+python src_gen_32.py
+python src_gen_33.py
+python src_gen_34.py
+python src_gen_35.py
+python src_gen_36.py
+python src_gen_37.py
+python src_gen_38.py
+# run the test code
+python test_gen_0.py
+python test_gen_1.py
+python test_gen_2.py
+python test_gen_3.py
+python test_gen_4.py
+python test_gen_5.py
+python test_gen_6.py
+python test_gen_7.py
+python test_gen_8.py
+python test_gen_9.py
+python test_gen_10.py
+python test_gen_11.py
+python test_gen_12.py
+python test_gen_13.py
+python test_gen_14.py
+python test_gen_15.py
+python test_gen_16.py
+python test_gen_17.py
+python test_gen_18.py
+python test_gen_19.py
+python test_gen_20.py
+python test_gen_21.py
+python test_gen_22.py
+python test_gen_23.py
+python test_gen_24.py
+python test_gen_25.py
+python test_gen_26.py
+python test_gen_27.py
+python test_gen_28.py
+python test_gen_29.py
+python test_gen_30.py
+python test_gen_31.py
+python test_gen_32.py
+python test_gen_33.py
+python test_gen_34.py
+python test_gen_35.py
+python test_gen_36.py
+python test_gen_37.py
+python test_gen_38.py
+# pytest happy?
+pytest
