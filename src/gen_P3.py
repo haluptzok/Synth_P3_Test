@@ -10,18 +10,27 @@ js_puzzles = load_json("397puzzles.json")
 # js_puzzles = load_json("puzzles.json")
 
 # Enumerate through all the puzzle records in the json file, generate src and test code
-for index, puzzle in enumerate(js_puzzles):
+index = 0
+for puzzle in js_puzzles:
     # In the src file put the standard sat/sol/assert so sol has context of sat() and docstring.
     # Synth will mask functions in src and try to regenerate functionally equivalent from the context.
     # Synth will run the test code to see if it succeeded.
 
+    # if no sol is provided for the sat problem, skip it, we can't use it
+    if len(puzzle["sol_bodies"]) == 0:
+        print("zero solutions", index)
+        continue
+
     # Put at most 10 functions in each file
-    file_index = index / 10
 
     if (index % 10) == 0:
+        file_index = index // 10
         if index != 0:  # if it's not the first time through the loop, close the previous files
             f_src.close()
             f_tst.close()
+
+        print(file_index)
+        print("src_gen_" + str(file_index) + ".py")
 
         # create files for src code and test code, write out header info to them
         f_src = open("src_gen_" + str(file_index) + ".py", "w", encoding="utf8")
@@ -67,6 +76,7 @@ for index, puzzle in enumerate(js_puzzles):
     # In the test file write the test
     f_tst.write("def test" + str(index) + "():\n")
     f_tst.write("    assert sat" + str(index) + "(sol" + str(index) + "())\n\n")
+    index += 1
     
 f_src.close()
 f_tst.close()
