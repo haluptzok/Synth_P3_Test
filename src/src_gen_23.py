@@ -90,8 +90,8 @@ def sat236(n: int, pairs=[[3, 0], [17, 1], [9254359, 19], [123, 9254359], [0, 12
     return success
 def sol236(pairs=[[3, 0], [17, 1], [9254359, 19], [123, 9254359], [0, 123]]):
     """
-    Given a sequence of integer pairs, p_i, m_i, where \sum p_i-m_i = 0, find the maximum value, over t, of
-    p_{t+1} + \sum_{i=1}^t p_i - m_i
+    Given a sequence of integer pairs, p_i, m_i, where sum p_i-m_i = 0, find the maximum value, over t, of
+    p_{t+1} + sum_{i=1}^t p_i - m_i
     """
     tot = 0
     n = 0

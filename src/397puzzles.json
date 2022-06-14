@@ -3078,7 +3078,7 @@
     "sat": "def sat(n: int, pairs=[[3, 0], [17, 1], [9254359, 19], [123, 9254359], [0, 123]]):\n    assert sum(p - m for p, m in pairs) == 0, \"oo\"\n    tot = 0\n    success = False\n    for p, m in pairs:\n        tot -= m\n        tot += p\n        assert tot <= n\n        if tot == n:\n            success = True\n    return success",
     "ans_type": "int",
     "sol_header": "def sol(pairs=[[3, 0], [17, 1], [9254359, 19], [123, 9254359], [0, 123]]):",
-    "sol_docstring": "    \"\"\"\n    Given a sequence of integer pairs, p_i, m_i, where \\sum p_i-m_i = 0, find the maximum value, over t, of\n    p_{t+1} + \\sum_{i=1}^t p_i - m_i\n    \"\"\"",
+    "sol_docstring": "    \"\"\"\n    Given a sequence of integer pairs, p_i, m_i, where sum p_i-m_i = 0, find the maximum value, over t, of\n    p_{t+1} + sum_{i=1}^t p_i - m_i\n    \"\"\"",
     "sol_bodies": [
       "    tot = 0\n    n = 0\n    for p, m in pairs:\n        tot += p - m\n        if tot > n:\n            n = tot\n    return n"
     ],
@@ -4293,7 +4293,7 @@
     "sat": "def sat(inds: List[int], vecs=[169, 203, 409, 50, 37, 479, 370, 133, 53, 159, 161, 367, 474, 107, 82, 447, 385]):\n    return all(sum((v >> i) & 1 for i in inds) % 2 == 1 for v in vecs)",
     "ans_type": "List[int]",
     "sol_header": "def sol(vecs=[169, 203, 409, 50, 37, 479, 370, 133, 53, 159, 161, 367, 474, 107, 82, 447, 385]):",
-    "sol_docstring": "    \"\"\"\n    Parity learning: Given binary vectors in a subspace, find the secret set S of indices such that:\n    $\\\\sum_{i \\in S} x_i = 1 (mod 2)$\n    \"\"\"",
+    "sol_docstring": "    \"\"\"\n    Parity learning: Given binary vectors in a subspace, find the secret set S of indices such that:\n    $sum_{i in S} x_i = 1 (mod 2)$\n    \"\"\"",
     "sol_bodies": [
       "    # Gaussian elimination\n    d = 0  # decode vectors into arrays\n    m = max(vecs)\n    while m:\n        m >>= 1\n        d += 1\n    vecs = [[(n >> i) & 1 for i in range(d)] for n in vecs]\n    ans = []\n    pool = [[0] * (d + 1) for _ in range(d)] + [v + [1] for v in vecs]\n    for i in range(d):\n        pool[i][i] = 1\n\n    for i in range(d):  # zero out bit i\n        for v in pool[d:]:\n            if v[i] == 1:\n                break\n        if v[i] == 0:\n            v = pool[i]\n        assert v[i] == 1  # found a vector with v[i] = 1, subtract it off from those with a 1 in the ith coordinate\n        w = v[:]\n        for v in pool:\n            if v[i] == 1:\n                for j in range(d + 1):\n                    v[j] ^= w[j]\n\n    return [i for i in range(d) if pool[i][-1]]"
     ],
@@ -4306,7 +4306,7 @@
     "sat": "def sat(inds: List[int], vecs=[26, 5, 32, 3, 15, 18, 31, 13, 24, 25, 34, 5, 15, 24, 16, 13, 0, 27, 37]):\n    return sum(sum((v >> i) & 1 for i in inds) % 2 for v in vecs) >= len(vecs) * 3 / 4",
     "ans_type": "List[int]",
     "sol_header": "def sol(vecs=[26, 5, 32, 3, 15, 18, 31, 13, 24, 25, 34, 5, 15, 24, 16, 13, 0, 27, 37]):",
-    "sol_docstring": "    \"\"\"\n    Learning parity with noise: Given binary vectors, find the secret set $S$ of indices such that, for at least\n    3/4 of the vectors, $$sum_{i \\in S} x_i = 1 (mod 2)$$\n    \"\"\"",
+    "sol_docstring": "    \"\"\"\n    Learning parity with noise: Given binary vectors, find the secret set $S$ of indices such that, for at least\n    3/4 of the vectors, $$sum_{i in S} x_i = 1 (mod 2)$$\n    \"\"\"",
     "sol_bodies": [
       "    # brute force\n    d = 0  # decode vectors into arrays\n    m = max(vecs)\n    while m:\n        m >>= 1\n        d += 1\n    vecs = [[(n >> i) & 1 for i in range(d)] for n in vecs]\n\n    import random\n    rand = random.Random(0)\n    target = (len(vecs) * 3) // 4\n    max_attempts = 10 ** 5\n    for _ in range(max_attempts):\n        ans = [i for i in range(d) if rand.randrange(2)]\n        if sum(sum(v[i] for i in ans) % 2 for v in vecs) >= len(vecs) * 3 / 4:\n            return ans"
     ],

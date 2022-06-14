@@ -309,7 +309,7 @@ def sat326(inds: List[int], vecs=[169, 203, 409, 50, 37, 479, 370, 133, 53, 159,
 def sol326(vecs=[169, 203, 409, 50, 37, 479, 370, 133, 53, 159, 161, 367, 474, 107, 82, 447, 385]):
     """
     Parity learning: Given binary vectors in a subspace, find the secret set S of indices such that:
-    $\\sum_{i \in S} x_i = 1 (mod 2)$
+    $sum_{i in S} x_i = 1 (mod 2)$
     """
     # Gaussian elimination
     d = 0  # decode vectors into arrays
@@ -344,7 +344,7 @@ def sat327(inds: List[int], vecs=[26, 5, 32, 3, 15, 18, 31, 13, 24, 25, 34, 5, 1
 def sol327(vecs=[26, 5, 32, 3, 15, 18, 31, 13, 24, 25, 34, 5, 15, 24, 16, 13, 0, 27, 37]):
     """
     Learning parity with noise: Given binary vectors, find the secret set $S$ of indices such that, for at least
-    3/4 of the vectors, $$sum_{i \in S} x_i = 1 (mod 2)$$
+    3/4 of the vectors, $$sum_{i in S} x_i = 1 (mod 2)$$
     """
     # brute force
     d = 0  # decode vectors into arrays
