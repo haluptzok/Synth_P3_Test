@@ -6,15 +6,8 @@ def load_json(filename):
         return json.load(f)
 
 # Convert json puzzles into src and test files for synth to process
-# js_puzzles = load_json("397puzzles.json")
-js_puzzles = load_json("puzzles.json")
-
-# create files for src code and test code, write out header info to them
-f_src = open("src_gen_P3.py", "w", encoding="utf8")
-f_src.write("from typing import List\n\n")
-f_tst = open("test_gen_P3.py", "w", encoding="utf8")
-f_tst.write("from typing import List\n")
-f_tst.write("from src_gen_P3 import *\n\n")
+js_puzzles = load_json("397puzzles.json")
+# js_puzzles = load_json("puzzles.json")
 
 # Enumerate through all the puzzle records in the json file, generate src and test code
 for index, puzzle in enumerate(js_puzzles):
@@ -22,8 +15,24 @@ for index, puzzle in enumerate(js_puzzles):
     # Synth will mask functions in src and try to regenerate functionally equivalent from the context.
     # Synth will run the test code to see if it succeeded.
 
+    # Put at most 10 functions in each file
+    file_index = index / 10
+
+    if (index % 10) == 0:
+        if index != 0:  # if it's not the first time through the loop, close the previous files
+            f_src.close()
+            f_tst.close()
+
+        # create files for src code and test code, write out header info to them
+        f_src = open("src_gen_" + str(file_index) + ".py", "w", encoding="utf8")
+        f_src.write("from typing import List\n\n")
+        f_tst = open("test_gen_" + str(file_index) + ".py", "w", encoding="utf8")
+        f_tst.write("from typing import List\n")
+        f_tst.write("from src_gen_" + str(file_index) + " import *\n\n")
+
     # if no sol is provided for the sat problem, skip it, we can't use it
     if len(puzzle["sol_bodies"]) == 0:
+        print("zero solutions", index)
         continue
 
     # Add the index # to the sat() and sol() functions
