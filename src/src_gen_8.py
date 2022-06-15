@@ -15,7 +15,7 @@ def sol80(s="FlIp ME!"):
     'CaT'
     """
     return "".join(c.lower() if c.upper() == c else c.upper() for c in s)
-assert sat80(sol80())
+# assert sat80(sol80())
 
 def sat81(cat: str, strings=['Will', 'i', 'am', 'Now', 'here']):
     i = 0
@@ -37,7 +37,7 @@ def sol81(strings=['Will', 'i', 'am', 'Now', 'here']):
     'catdogbird'
     """
     return "".join(strings)
-assert sat81(sol81())
+# assert sat81(sol81())
 
 def sat82(extensions: List[str], strings=['cat', 'dog', 'shatter', 'donut', 'at', 'todo'], prefix="do"):
     i = 0
@@ -57,7 +57,7 @@ def sol82(strings=['cat', 'dog', 'shatter', 'donut', 'at', 'todo'], prefix="do")
     ['cat', 'car']
     """
     return [s for s in strings if s.startswith(prefix)]
-assert sat82(sol82())
+# assert sat82(sol82())
 
 def sat83(positives: List[int], nums=[2, 2342, -2, 32, -8, -5, 2342, 0, -9, 44, 11]):
     stack = positives[::-1]
@@ -75,7 +75,7 @@ def sol83(nums=[2, 2342, -2, 32, -8, -5, 2342, 0, -9, 44, 11]):
     [3, 19, 44, 44, 11]
     """
     return [i for i in nums if i > 0]
-assert sat83(sol83())
+# assert sat83(sol83())
 
 def sat84(certificates: List[int], nums=[1449, 14, 21, 105, 217]):
     return all(pow(cert, n - 1, n) > 1 for cert, n in zip(certificates, nums)) and len(certificates) == len(nums)
@@ -90,7 +90,7 @@ def sol84(nums=[1449, 14, 21, 105, 217]):
     [3]  # because (3 ** 1468) % 1469 != 1
     """
     return [next(i for i in range(2, n) if pow(i, n - 1, n) > 1) for n in nums]
-assert sat84(sol84())
+# assert sat84(sol84())
 
 def sat85(root: float, coeffs=[1, 2, 3, 17]):
     return abs(sum(coeff * (root ** i) for i, coeff in enumerate(coeffs))) < 1e-4
@@ -122,7 +122,7 @@ def sol85(coeffs=[1, 2, 3, 17]):
                 b, p_b = mid, p_mid
 
     assert False, "Root finder failed on 100 attempts"
-assert sat85(sol85())
+# assert sat85(sol85())
 
 def sat86(li: List[int], orig=[1, -2, 3, 17, 8, 4, 12, 3, 18, 5, -29, 0, 0]):
     assert orig[::3] == li[::3], "Keep every third entry fixed"
@@ -157,7 +157,7 @@ def sol86(orig=[1, -2, 3, 17, 8, 4, 12, 3, 18, 5, -29, 0, 0]):
         answ.append(your_list[-1])
         answ.append(sub[-1])
     return answ
-assert sat86(sol86())
+# assert sat86(sol86())
 
 def sat87(li: List[int], orig=[1, 1, 3, 2, 0, 8, 32, -4, 0]):
     for i in range(len(li) - 1):
@@ -178,7 +178,7 @@ def sol87(orig=[1, 1, 3, 2, 0, 8, 32, -4, 0]):
     """
     my_list = sorted(set(orig))
     return my_list
-assert sat87(sol87())
+# assert sat87(sol87())
 
 def sat88(m: int, hello=[1, 31, 3, 2, 0, 18, 32, -4, 2, -1000, 3502145, 3502145, 21, 18, 2, 60]):
     return m in hello and not any(m < i for i in hello)
@@ -193,7 +193,7 @@ def sol88(hello=[1, 31, 3, 2, 0, 18, 32, -4, 2, -1000, 3502145, 3502145, 21, 18,
     9
     """
     return max(hello)
-assert sat88(sol88())
+# assert sat88(sol88())
 
 def sat89(li: List[List[int]], n=19723, lower=1000):
     assert len({(i, j) for i, j in li}) >= lower, "not enough 7's (ignoring duplicates)"
@@ -209,5 +209,5 @@ def sol89(n=19723, lower=1000):
     [[77, 0], [77, 1], [78, 0]]
     """
     return [[i, j] for i in range(n) if (i % 11 == 0 or i % 13 == 0) for j, c in enumerate(str(i)) if c == '7']
-assert sat89(sol89())
+# assert sat89(sol89())
 

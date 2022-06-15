@@ -14,7 +14,7 @@ def sol70(score="o o o| o| .| .| .| o| o| o o o| .|"):
     """
     mapping = {'.|': 1, 'o|': 2, 'o': 4}
     return [mapping[note] for note in score.split()]
-assert sat70(sol70())
+# assert sat70(sol70())
 
 def sat71(ans: List[int], s="Bananannanaannanaanananananana", sub="anan", count=7):
     return all(sub == s[i:i + len(sub)] and i >= 0 for i in ans) and len(set(ans)) >= count
@@ -33,7 +33,7 @@ def sol71(s="Bananannanaannanaanananananana", sub="anan", count=7):
         if s[i:i + len(sub)] == sub:
             ans.append(i)
     return ans
-assert sat71(sol71())
+# assert sat71(sol71())
 
 def sat72(ans: str, s="six one four three two nine eight"):
     nums = 'zero one two three four five six seven eight nine'.split()
@@ -55,7 +55,7 @@ def sol72(s="six one four three two nine eight"):
     arr.sort()
     ans = " ".join([nums[i] for i in arr])
     return ans
-assert sat72(sol72())
+# assert sat72(sol72())
 
 def sat73(inds: List[int], nums=[0.31, 21.3, 5.0, 9.0, 11.0, 5.01, 17.2]):
     a, b = inds
@@ -83,7 +83,7 @@ def sol73(nums=[0.31, 21.3, 5.0, 9.0, 11.0, 5.01, 17.2]):
                 best_score = score
                 best = [i, j]
     return best
-assert sat73(sol73())
+# assert sat73(sol73())
 
 def sat74(ans: List[float], nums=[13.0, 17.0, 17.0, 15.5, 2.94]):
     assert min(ans) == 0.0 and max(ans) == 1.0
@@ -114,7 +114,7 @@ def sol74(nums=[13.0, 17.0, 17.0, 15.5, 2.94]):
     for i in range(len(nums)):
         nums[i] = (nums[i] - a) / (b - a)
     return nums
-assert sat74(sol74())
+# assert sat74(sol74())
 
 def sat75(candidates: List[str], int_indices=[2, 4, 7, 9, 101]):
     for i in int_indices:
@@ -145,7 +145,7 @@ def sol75(int_indices=[2, 4, 7, 9, 101]):
     for i in int_indices:
         ans[i] = "17"
     return ans
-assert sat75(sol75())
+# assert sat75(sol75())
 
 def sat76(lengths: List[int], strs=['pneumonoultramicroscopicsilicovolcanoconiosis', ' ', 'foo', '2.5']):
     for length, s in zip(lengths, strs):
@@ -168,7 +168,7 @@ def sol76(strs=['pneumonoultramicroscopicsilicovolcanoconiosis', ' ', 'foo', '2.
     [3, 4]
     """
     return [len(s) for s in strs]
-assert sat76(sol76())
+# assert sat76(sol76())
 
 def sat77(d: int, n=123456):
     return n % d == 0 and d < n and all(n % e for e in range(d + 1, n))
@@ -185,7 +185,7 @@ def sol77(n=123456):
     500
     """
     return next(d for d in range(n - 1, 0, -1) if n % d == 0)
-assert sat77(sol77())
+# assert sat77(sol77())
 
 def sat78(factors: List[int], n=123456, num_factors=8):
     assert len(factors) == num_factors
@@ -219,7 +219,7 @@ def sol78(n=123456, num_factors=8):
                 ans.append(n)
                 return ans
     assert False
-assert sat78(sol78())
+# assert sat78(sol78())
 
 def sat79(ans: List[int], li=[2, 19, 2, 53, 1, 1, 2, 44, 17, 0, 19, 31]):
     return set(ans) == set(li) and all(li.index(ans[i]) < li.index(ans[i + 1]) for i in range(len(ans) - 1))
@@ -242,5 +242,5 @@ def sol79(li=[2, 19, 2, 53, 1, 1, 2, 44, 17, 0, 19, 31]):
             ans.append(n)
             seen.add(n)
     return ans
-assert sat79(sol79())
+# assert sat79(sol79())
 

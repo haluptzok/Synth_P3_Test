@@ -16,7 +16,7 @@ def sol140(uneven=[[1, 3, 2, 32, 17], [17, 2, 48, 17], [], [9, 35, 4], [3, 17]],
     [[0, 0], [0, 2], [2, 1]]
     """
     return [[i, j] for i, row in enumerate(uneven) for j, n in enumerate(row) if n == target]
-assert sat140(sol140())
+# assert sat140(sol140())
 
 def sat141(up_down: List[int], nums=[17, 2, 3, 523, 18, -2, 0, 2, -1]):
     assert all(up_down.count(i) == nums.count(i) for i in set(up_down + nums)), "not a reordering"
@@ -38,7 +38,7 @@ def sol141(nums=[17, 2, 3, 523, 18, -2, 0, 2, -1]):
     [8, 5, 1] # because 1 + 5 is even
     """
     return sorted(nums, reverse=(False if (nums[0] + nums[-1]) % 2 else True))
-assert sat141(sol141())
+# assert sat141(sol141())
 
 def sat142(encrypted: str, orig="Hello, world!"):
     assert len(encrypted) == len(orig)
@@ -49,7 +49,7 @@ def sol142(orig="Hello, world!"):
     'substitution cypher' => 'wyfwxmxyxmsr$g}tliv'
     """
     return "".join(chr(ord(b) + 2 * 2) for b in orig)
-assert sat142(sol142())
+# assert sat142(sol142())
 
 def sat143(n: int, nums=[17, -1023589211, -293485382500, 31, -293485382500, 105762, 94328103589]):
     assert n in nums
@@ -64,7 +64,7 @@ def sol143(nums=[17, -1023589211, -293485382500, 31, -293485382500, 105762, 9432
     5
     """
     return sorted(set(nums))[1]
-assert sat143(sol143())
+# assert sat143(sol143())
 
 def sat144(boring: List[str], text="This is not boring. I am boring! I am sooo tired."):
     sentences = text.replace("!", ".").replace("?", ".").split(".")
@@ -81,7 +81,7 @@ def sol144(text="This is not boring. I am boring! I am sooo tired."):
 
     """
     return [s for s in text.replace("!", ".").replace("?", ".").split(".") if s.split()[:1] == ["I"]]
-assert sat144(sol144())
+# assert sat144(sol144())
 
 def sat145(zero_sums: List[bool], trips=[[1253532, -3920635, 332], [-24, 18, 6], [0, 5, -5], [1, 1, 1], [-20, 17, 4]]):
     return len(zero_sums) == len(trips) and all(z == ((a + b + c) == 0) for z, (a, b, c) in zip(zero_sums, trips))
@@ -95,7 +95,7 @@ def sol145(trips=[[1253532, -3920635, 332], [-24, 18, 6], [0, 5, -5], [1, 1, 1],
     [0, 1, 3]
     """
     return [sum(t) == 0 for t in trips]
-assert sat145(sol145())
+# assert sat145(sol145())
 
 def sat146(s: str, target="Hello, world!"):
     subs = {ord(c): ord(c) + 2 for c in "aeiouAEIOU"}
@@ -110,7 +110,7 @@ def sol146(target="Hello, world!"):
     """
     subs = {ord(c): ord(c) + 2 for c in "aeiouAEIOU"}
     return target.translate(subs).swapcase()
-assert sat146(sol146())
+# assert sat146(sol146())
 
 def sat147(ans: List[int], nums=[23, 17, 201, 14, 10473, 43225, 421, 423, 11, 10, 2022, 342157]):
     i, digit_sum = ans
@@ -134,7 +134,7 @@ def sol147(nums=[23, 17, 201, 14, 10473, 43225, 421, 423, 11, 10, 2022, 342157])
 
     n, i = max((n, i) for i, n in enumerate(nums) if is_prime(n))
     return [i, sum(int(c) for c in str(n))]
-assert sat147(sol147())
+# assert sat147(sol147())
 
 def sat148(different: str, d={'cat': 'CAT', 'tree': 'T', 'pick me': 'not', 'OK': 'red', 'blah': 'blah', 'z': 'Z'}):
     return different in d and all(k.islower() != different.islower() for k in d if k != different)
@@ -150,7 +150,7 @@ def sol148(d={'cat': 'CAT', 'tree': 'T', 'pick me': 'not', 'OK': 'red', 'blah': 
     for different in d:
         if all(k.islower() != different.islower() for k in d if k != different):
             return different
-assert sat148(sol148())
+# assert sat148(sol148())
 
 def sat149(primes: List[int], n=1234):
     assert all(1 < p for p in primes) and all(p % q for p in primes for q in primes if q < p)
@@ -171,5 +171,5 @@ def sol149(n=1234):
             primes.append(i)
             candidates.difference_update(range(i, n, i))
     return primes
-assert sat149(sol149())
+# assert sat149(sol149())
 

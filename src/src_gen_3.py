@@ -20,7 +20,7 @@ def sol30():
         return helper(m - 1, i, k) + [[i, j]] + helper(m - 1, k, j)
 
     return helper(8, 0, 2)
-assert sat30(sol30())
+# assert sat30(sol30())
 
 def sat31(moves: List[List[int]], source=[[0, 7], [4, 5, 6], [1, 2, 3, 8]], target=[[0, 1, 2, 3, 8], [4, 5], [6, 7]]):
     state = [s[:] for s in source]
@@ -59,7 +59,7 @@ def sol31(source=[[0, 7], [4, 5, 6], [1, 2, 3, 8]], target=[[0, 1, 2, 3, 8], [4,
             move(d, final[d])
 
     return ans
-assert sat31(sol31())
+# assert sat31(sol31())
 
 def sat32(x: List[int], length=13, s="Dynamic programming solves this puzzle!!!"):
     return all(s[x[i]] <= s[x[i + 1]] and x[i + 1] > x[i] >= 0 for i in range(length - 1))
@@ -84,7 +84,7 @@ def sol32(length=13, s="Dynamic programming solves this puzzle!!!"):
         i = dyn[i][2]
         backwards.append(i)
     return backwards[::-1]
-assert sat32(sol32())
+# assert sat32(sol32())
 
 def sat33(x: List[int], length=20, s="Dynamic programming solves this classic job-interview puzzle!!!"):
     return all(s[x[i]] <= s[x[i + 1]] and x[i + 1] > x[i] for i in range(length - 1))
@@ -106,21 +106,21 @@ def sol33(length=20, s="Dynamic programming solves this classic job-interview pu
         i = dyn[n + i][2]
         backwards.append(i)
     return backwards[::-1]
-assert sat33(sol33())
+# assert sat33(sol33())
 
 def sat34(quine: str):
     return eval(quine) == quine
 def sol34():
     """Find a string that when evaluated as a Python expression is that string itself."""
     return "(lambda x: f'({x})({chr(34)}{x}{chr(34)})')(\"lambda x: f'({x})({chr(34)}{x}{chr(34)})'\")"
-assert sat34(sol34())
+# assert sat34(sol34())
 
 def sat35(rev_quine: str):
     return eval(rev_quine[::-1]) == rev_quine
 def sol35():
     """Find a string that, when reversed and evaluated gives you back that same string."""
     return "rev_quine"[::-1]  # thanks GPT-3!
-assert sat35(sol35())
+# assert sat35(sol35())
 
 def sat36(colors: List[int], n=100):
     assert set(colors) <= {0, 1} and len(colors) >= n
@@ -146,7 +146,7 @@ def sol36(n=100):
                 done = False
                 sol[random.choice([i, j, k])] = 1 - sol[i]
     return sol
-assert sat36(sol36())
+# assert sat36(sol36())
 
 def sat37(hands: List[int], target_angle=45):
     h, m = hands
@@ -162,7 +162,7 @@ def sol37(target_angle=45):
             minute_angle = 6 * m
             if abs(hour_angle - minute_angle) % 360 in [target_angle, 360 - target_angle]:
                 return [h, m]
-assert sat37(sol37())
+# assert sat37(sol37())
 
 def sat38(daygroups: List[List[List[int]]]):
     assert len(daygroups) == 7
@@ -213,7 +213,7 @@ def sol38():
             todos = [pair for pair, count in counts.items() if count == 0]
             if len(todos) == 0:
                 return [[pi[k:k + 3] for k in range(0, 15, 3)] for pi, _inv in days]
-assert sat38(sol38())
+# assert sat38(sol38())
 
 def sat39(n: int):
     for i in range(5):
@@ -241,5 +241,5 @@ def sol39():
         if n > 0 and n % 5 == 1:
             return m
         m += 5
-assert sat39(sol39())
+# assert sat39(sol39())
 

@@ -14,7 +14,7 @@ def sol190(str_nums=['1,3', '-11', '17.5', '-11', '2', '2.2', '2,2', '4', '-18,1
     ["99,9", "100"] => 100.0
     """
     return max(float(s.replace(",", ".")) for s in str_nums)
-assert sat190(sol190())
+# assert sat190(sol190())
 
 def sat191(summands: List[int], n=1234567890):
     return sum(summands) == n and min(summands) > 0 and len(summands) == 4 and all(s % 2 == 0 for s in summands)
@@ -23,7 +23,7 @@ def sol191(n=1234567890):
 
     100 => [22, 24, 26, 28]"""
     return [2] * 3 + [n - 6]
-assert sat191(sol191())
+# assert sat191(sol191())
 
 def sat192(nums: List[int], super_factorials=[1, 2, 1]):
     for i, sf in enumerate(super_factorials):
@@ -52,7 +52,7 @@ def sol192(super_factorials=[1, 2, 1]):
             cache[s_fact] = n
         n += 1
     return [cache[sf] for sf in super_factorials]
-assert sat192(sol192())
+# assert sat192(sol192())
 
 def sat193(orig: str, target="-Hello,_world!__This_is-so-easy!-"):
     assert "_" not in orig and "-" not in orig
@@ -74,7 +74,7 @@ def sol193(target="-Hello,_world!__This_is-so-easy!-"):
     "_o-k__?-" => "  o        k  ?     "
     """
     return target.replace("-", " " * 3).replace("_", " ")
-assert sat193(sol193())
+# assert sat193(sol193())
 
 def sat194(valids: List[str], filenames=['cat.txt', '!jog.dll', '31F9.html', 'Is this okay?.txt', '.exe', '']):
     assert len(valids) == len(filenames)
@@ -97,7 +97,7 @@ def sol194(filenames=['cat.txt', '!jog.dll', '31F9.html', 'Is this okay?.txt', '
             f.split(".")[1:] in [['txt'], ['dll'], ['exe']] and f[0].isalpha() and sum(c.isdigit() for c in f) < 4
             else "No"
             for f in filenames]
-assert sat194(sol194())
+# assert sat194(sol194())
 
 def sat195(lst: List[int], tot=1125181293221):
     return sum(n ** 2 if n % 3 == 0 else n ** 3 if n % 4 == 0 else n for n in lst) == tot
@@ -105,7 +105,7 @@ def sol195(tot=1125181293221):
     """Find a list of integers such that tot is the sum of (n^2 if 3 | n, else n^3 if 4 | n, else n)"""
     residue = (tot - 1) % 12
     return [1] * residue + [tot - residue]
-assert sat195(sol195())
+# assert sat195(sol195())
 
 def sat196(primes: str, s="This is a test of whether you would want to do such strange puzzles"):
 
@@ -129,7 +129,7 @@ def sol196(s="This is a test of whether you would want to do such strange puzzle
         return n > 1 and all(n % j for j in range(2, int(n ** 0.5) + 1))
 
     return " ".join(w for w in s.split() if is_prime(len(w)))
-assert sat196(sol196())
+# assert sat196(sol196())
 
 def sat197(z: str, x="-8142432/763083", y="66/-13474", max_len=18):
     [[a, b], [c, d], [u, v]] = [[int(n) for n in s.split("/")] for s in [x, y, z]]
@@ -154,7 +154,7 @@ def sol197(x="-8142432/763083", y="66/-13474", max_len=18):
 
     d = gcd(abs(num), abs(den))
     return f'{num // d}/{den // d}'
-assert sat197(sol197())
+# assert sat197(sol197())
 
 def sat198(ordered: List[int], nums=[1, 0, -1, -100, 10, 14, 235251, 11, 10000, 2000001, -155]):
     digit_sums = [sum(int(c) for c in str(n) if c != "-") for n in ordered]
@@ -165,7 +165,7 @@ def sol198(nums=[1, 0, -1, -100, 10, 14, 235251, 11, 10000, 2000001, -155]):
     [17, 21, 0] => [0, 17, 21]
     """
     return sorted(nums, key=lambda n: sum(int(c) for c in str(n) if c != "-"))
-assert sat198(sol198())
+# assert sat198(sol198())
 
 def sat199(odds: List[int], nums=[204, 109, 203, 17, 45, 11, 21, 99, 909, 16, -33, 3, 17]):
     assert all(o > 10 and odds.count(o) == nums.count(o) and int(str(o)[i]) % 2 for o in odds for i in [-1, 0])
@@ -176,5 +176,5 @@ def sol199(nums=[204, 109, 203, 17, 45, 11, 21, 99, 909, 16, -33, 3, 17]):
     [73, 4, 72] => [73]
     """
     return [n for n in nums if n > 10 and (int(str(n)[0]) * int(str(n)[-1])) % 2]
-assert sat199(sol199())
+# assert sat199(sol199())
 

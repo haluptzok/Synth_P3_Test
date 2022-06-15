@@ -16,7 +16,7 @@ def sol110(nums=[2, 4, 17, 29, 31, 1000, 416629]):
     "increasing"
     """
     return "increasing" if len(nums) > 1 and nums[1] > nums[0] else "decreasing"
-assert sat110(sol110())
+# assert sat110(sol110())
 
 def sat111(common: List[int], a=[2, 416629, 2, 4, 17, 29, 31, 1000], b=[31, 2, 4, 17, 29, 41205]):
     return all((i in common) == (i in a and i in b) for i in a + b + common)
@@ -31,7 +31,7 @@ def sol111(a=[2, 416629, 2, 4, 17, 29, 31, 1000], b=[31, 2, 4, 17, 29, 41205]):
     [3]
     """
     return sorted(set(a).intersection(set(b)))
-assert sat111(sol111())
+# assert sat111(sol111())
 
 def sat112(p: int, n=101076):
 
@@ -53,7 +53,7 @@ def sol112(n=101076):
         return all(m % i for i in range(2, m - 1))
 
     return next(n // i for i in range(1, n) if n % i == 0 and is_prime(n // i))
-assert sat112(sol112())
+# assert sat112(sol112())
 
 def sat113(sums: List[int], n=104):
     return all(sums[i + 1] - sums[i] == i for i in range(n)) and sums[0] == 0
@@ -71,7 +71,7 @@ def sol113(n=104):
     for i in range(n):
         ans.append(ans[-1] + i)
     return ans
-assert sat113(sol113())
+# assert sat113(sol113())
 
 def sat114(matches: List[int], parens="((())()(()()))(())"):
     for i, (j, c) in enumerate(zip(matches, parens)):
@@ -98,7 +98,7 @@ def sol114(parens="((())()(()()))(())"):
             matches[i] = j
             matches[j] = i
     return matches
-assert sat114(sol114())
+# assert sat114(sol114())
 
 def sat115(derivative: List[int], poly=[2, 1, 0, 4, 19, 231, 0, 5]):
 
@@ -117,7 +117,7 @@ def sol115(poly=[2, 1, 0, 4, 19, 231, 0, 5]):
     [2, 4]   # 4 + 2x^2
     """
     return [i * poly[i] for i in range(1, len(poly))]
-assert sat115(sol115())
+# assert sat115(sol115())
 
 def sat116(init: List[int], target=124156):
     a, b, c = init
@@ -141,7 +141,7 @@ def sol116(target=124156):
         x = nums[-1] - sum(nums[:-1])  # x is such that x + nums[:3] == nums[3]
         nums = [x] + nums[:-1]
     return nums
-assert sat116(sol116())
+# assert sat116(sol116())
 
 def sat117(vowels: List[str], texts=['Hello, world!', 'Goodbye, world!']):
     for v, t in zip(vowels, texts):
@@ -164,7 +164,7 @@ def sol117(texts=['Hello, world!', 'Goodbye, world!']):
     """
     return ["".join(c for c in text if c.lower() in "aeiou") + (text[-1] if text[-1].lower() == "y" else "")
             for text in texts]
-assert sat117(sol117())
+# assert sat117(sol117())
 
 def sat118(shifted: str, n=124582369835, shift=3):
     if shift > len(str(n)):
@@ -181,7 +181,7 @@ def sol118(n=124582369835, shift=3):
     if shift > len(s):
         return s[::-1]
     return s[shift:] + s[:shift]
-assert sat118(sol118())
+# assert sat118(sol118())
 
 def sat119(tot: int, s="Add ME uP AND YOU WILL GET A BIG NUMBER!"):
     for c in s:
@@ -199,5 +199,5 @@ def sol119(s="Add ME uP AND YOU WILL GET A BIG NUMBER!"):
     147 # = 65 + 82
     """
     return sum(ord(c) for c in s if c.isupper())
-assert sat119(sol119())
+# assert sat119(sol119())
 

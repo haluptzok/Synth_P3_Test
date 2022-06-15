@@ -45,7 +45,7 @@ def sol300():
     assert res
 
     return good_boards
-assert sat300(sol300())
+# assert sat300(sol300())
 
 def sat301(good_boards: List[str]):
     board_bit_reps = {tuple(sum(1 << i for i in range(9) if b[i] == c) for c in "XO") for b in good_boards}
@@ -94,7 +94,7 @@ def sol301():
     assert res
 
     return good_boards
-assert sat301(sol301())
+# assert sat301(sol301())
 
 def sat302(probs: List[float]):
     assert len(probs) == 3 and abs(sum(probs) - 1) < 1e-6
@@ -102,7 +102,7 @@ def sat302(probs: List[float]):
 def sol302():
     """Find optimal probabilities for playing Rock-Paper-Scissors zero-sum game, with best worst-case guarantee"""
     return [1 / 3] * 3
-assert sat302(sol302())
+# assert sat302(sol302())
 
 def sat303(strategies: List[List[float]], A=[[1.0, -1.0], [-1.3, 0.8]], B=[[-0.9, 1.1], [0.7, -0.8]], eps=0.01):
     m, n = len(A), len(A[0])
@@ -149,7 +149,7 @@ def sol303(A=[[1.0, -1.0], [-1.3, 0.8]], B=[[-0.9, 1.1], [0.7, -0.8]], eps=0.01)
             strategies.append(s)
         if sat303(strategies, A, B, eps):
             return strategies
-assert sat303(sol303())
+# assert sat303(sol303())
 
 def sat304(strategies: List[List[float]], A=[[0.0, -0.5, 1.0], [0.75, 0.0, -1.0], [-1.0, 0.4, 0.0]], eps=0.01):
     m, n = len(A), len(A[0])
@@ -185,14 +185,14 @@ def sol304(A=[[0.0, -0.5, 1.0], [0.75, 0.0, -1.0], [-1.0, 0.4, 0.0]], eps=0.01):
         if (all(sum(A[i][j] * q[j] for j in range(n)) <= v + eps for i in range(m)) and
                 all(sum(A[i][j] * p[i] for i in range(m)) >= v - eps for j in range(n))):
             return [p, q]
-assert sat304(sol304())
+# assert sat304(sol304())
 
 def sat305(e: List[int], edges=[[0, 217], [40, 11], [17, 29], [11, 12], [31, 51]]):
     return e in edges
 def sol305(edges=[[0, 217], [40, 11], [17, 29], [11, 12], [31, 51]]):
     """Find any edge in edges."""
     return edges[0]
-assert sat305(sol305())
+# assert sat305(sol305())
 
 def sat306(tri: List[int], edges=[[0, 17], [0, 22], [17, 22], [17, 31], [22, 31], [31, 17]]):
     a, b, c = tri
@@ -214,7 +214,7 @@ def sol306(edges=[[0, 17], [0, 22], [17, 22], [17, 31], [22, 31], [31, 17]]):
                     return [i, j, k]
             except ValueError:
                 pass
-assert sat306(sol306())
+# assert sat306(sol306())
 
 def sat307(nodes: List[int], size=3, edges=[[0, 17], [0, 22], [17, 22], [17, 31], [22, 31], [31, 17]]):
     assert len(nodes) == len(set(nodes)) >= size
@@ -250,7 +250,7 @@ def sol307(size=3, edges=[[0, 17], [0, 22], [17, 22], [17, 31], [22, 31], [31, 1
         pools.append([i for i in pools[-1] if i > a and i in neighbors[a]])
         indices.append(-1)
     assert False, f"No clique of size {size}"
-assert sat307(sol307())
+# assert sat307(sol307())
 
 def sat308(path: List[int], weights=[{1: 20, 2: 1}, {2: 2, 3: 5}, {1: 10}], bound=11):
     return path[0] == 0 and path[-1] == 1 and sum(weights[a][b] for a, b in zip(path, path[1:])) <= bound
@@ -281,7 +281,7 @@ def sol308(weights=[{1: 20, 2: 1}, {2: 2, 3: 5}, {1: 10}], bound=11):
         while rev_path[-1] != u:
             rev_path.append(trails[rev_path[-1]])
         return rev_path[::-1]
-assert sat308(sol308())
+# assert sat308(sol308())
 
 def sat309(path: List[int], edges=[[0, 11], [0, 7], [7, 5], [0, 22], [11, 22], [11, 33], [22, 33]], u=0, v=33, bound=3):
     assert path[0] == u and path[-1] == v and all([i, j] in edges for i, j in zip(path, path[1:]))
@@ -313,5 +313,5 @@ def sol309(edges=[[0, 11], [0, 7], [7, 5], [0, 22], [11, 22], [11, 33], [22, 33]
         while rev_path[-1] != u:
             rev_path.append(trails[rev_path[-1]])
         return rev_path[::-1]
-assert sat309(sol309())
+# assert sat309(sol309())
 

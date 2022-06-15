@@ -14,7 +14,7 @@ def sol210(n=920, m=799):
             for a in range(3, int(n / (2 ** 0.5)))
             for b in range(a + 1, int((n * n - a * a) ** 0.5) + 1)
             if ((a * a + b * b) ** 0.5).is_integer()]
-assert sat210(sol210())
+# assert sat210(sol210())
 
 def sat211(s: str, pool=['cat', 'catatatatctsa', 'abcdefhijklmnop', '124259239185125', '', 'foo', 'unique']):
     assert s in pool
@@ -28,7 +28,7 @@ def sol211(pool=['cat', 'catatatatctsa', 'abcdefhijklmnop', '124259239185125', '
     ["woooow", "cow"] => "cow"
     """
     return max(pool, key=lambda x: len(set(x)))
-assert sat211(sol211())
+# assert sat211(sol211())
 
 def sat212(results: List[List[int]], stats=[[2, 3, 18], [4, 9, 2], [2, 5, 7], [3, 8, 12], [4, 9, 106]]):
     assert len(results) == len(stats)
@@ -45,7 +45,7 @@ def sol212(stats=[[2, 3, 18], [4, 9, 2], [2, 5, 7], [3, 8, 12], [4, 9, 106]]):
     for (eaten, need, stock) in stats:
         results.append([eaten + min(need, stock), max(0, stock - need)])
     return results
-assert sat212(sol212())
+# assert sat212(sol212())
 
 def sat213(ops: List[str], target=2021, nums=[4, 6, 2, 1, 1, 3, 9]):
     assert len(ops) == len(set(ops)) and set(ops) == {"**", "*", "+", "-", "//", "%"}
@@ -70,7 +70,7 @@ def sol213(target=2021, nums=[4, 6, 2, 1, 1, 3, 9]):
         except (ZeroDivisionError, SyntaxError):
             pass
     assert False
-assert sat213(sol213())
+# assert sat213(sol213())
 
 def sat214(rev: List[str], strs=['cat', 'u8u', '12532', '', '191', '4tUn8', 'ewrWQTEW', 'i', 'IoU']):
     assert len(rev) == len(strs)
@@ -81,7 +81,7 @@ def sol214(strs=['cat', 'u8u', '12532', '', '191', '4tUn8', 'ewrWQTEW', 'i', 'Io
     ["Test", "!@#"] => ["tEST", "#@!"]
     """
     return [s.swapcase() if s.swapcase() != s else s[::-1] for s in strs]
-assert sat214(sol214())
+# assert sat214(sol214())
 
 def sat215(positions: List[List[int]]):
 
@@ -117,7 +117,7 @@ def sol215():
             return [pos, hashes[h]]
         else:
             hashes[h] = pos
-assert sat215(sol215())
+# assert sat215(sol215())
 
 def sat216(ab: List[int], s="3298832990329923299432996329983300033002"):
     return abs(ab[0] - ab[1]) > 4 and s == "".join(str(i) for i in range(min(ab), max(ab) + 1) if i % 2 == 0)
@@ -139,7 +139,7 @@ def sol216(s="3298832990329923299432996329983300033002"):
             return [n, m - 1]
 
     assert False
-assert sat216(sol216())
+# assert sat216(sol216())
 
 def sat217(b: bool, n=10):
     i = 0
@@ -151,7 +151,7 @@ def sat217(b: bool, n=10):
 def sol217(n=10):
     """Determine if n can be evenly divided into two equal numbers. (Easy)"""
     return n % 2 == 0
-assert sat217(sol217())
+# assert sat217(sol217())
 
 def sat218(s: str, word="antidisestablishmentarianism", max_len=10):
     if len(word) <= max_len:
@@ -165,7 +165,7 @@ def sol218(word="antidisestablishmentarianism", max_len=10):
     if len(word) <= max_len:
         return word
     return f"{word[0]}{len(word) - 2}{word[-1]}"
-assert sat218(sol218())
+# assert sat218(sol218())
 
 def sat219(corners: List[List[int]], m=10, n=9, a=5, target=4):
     covered = {(i + x, j + y) for i, j in corners for x in range(a) for y in range(a)}
@@ -185,5 +185,5 @@ def sol219(m=10, n=9, a=5, target=4):
     [[0, 0], [0, 5], [5, 0], [5, 5]]
     """
     return [[x, y] for x in range(0, m, a) for y in range(0, n, a)]
-assert sat219(sol219())
+# assert sat219(sol219())
 

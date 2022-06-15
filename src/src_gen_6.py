@@ -18,7 +18,7 @@ def sol60(strings=['cat', 'dog', 'shatter', 'bear', 'at', 'ta'], substring="at")
     ['cat', 'bear']
     """
     return [s for s in strings if substring in s]
-assert sat60(sol60())
+# assert sat60(sol60())
 
 def sat61(nums: List[int], tot=14, prod=99):
     assert sum(nums) == tot
@@ -41,7 +41,7 @@ def sol61(tot=14, prod=99):
         ans += [-1, -1]
     ans += [1] * (tot - sum(ans))
     return ans
-assert sat61(sol61())
+# assert sat61(sol61())
 
 def sat62(maxes: List[int], nums=[1, 4, 3, -6, 19]):
     assert len(maxes) == len(nums)
@@ -62,7 +62,7 @@ def sol62(nums=[1, 4, 3, -6, 19]):
     [2, 8, 8]
     """
     return [max(nums[:i]) for i in range(1, len(nums) + 1)]
-assert sat62(sol62())
+# assert sat62(sol62())
 
 def sat63(ans: str, s="so easy", length=20):
     return ans == ans[::-1] and len(ans) == length and s in ans
@@ -90,7 +90,7 @@ def sol63(s="so easy", length=20):
             if s in ans:
                 return ans
     assert False, "shouldn't reach here"
-assert sat63(sol63())
+# assert sat63(sol63())
 
 def sat64(str_num: str, nums=['100011101100001', '100101100101110']):
     a, b = nums
@@ -108,7 +108,7 @@ def sol64(nums=['100011101100001', '100101100101110']):
     a, b = nums
     ans = int(a, 2) ^ int(b, 2)
     return format(ans, "b")
-assert sat64(sol64())
+# assert sat64(sol64())
 
 def sat65(ans: str, words=['these', 'are', 'some', 'pretty', 'long', 'words']):
     return ans in words and all(len(ans) >= len(w) for w in words)
@@ -123,7 +123,7 @@ def sol65(words=['these', 'are', 'some', 'pretty', 'long', 'words']):
     "sheep"
     """
     return max(words, key=len)
-assert sat65(sol65())
+# assert sat65(sol65())
 
 def sat66(ans: List[int], m=200004931, n=66679984):
     gcd, a, b = ans
@@ -158,7 +158,7 @@ def sol66(m=200004931, n=66679984):
         return gcd_cert(m, n)
     gcd, a, b = gcd_cert(n, m)
     return [gcd, b, a]
-assert sat66(sol66())
+# assert sat66(sol66())
 
 def sat67(prefixes: List[str], s="donesezichethofalij"):
     return all(s.startswith(p) for p in prefixes) and len(set(prefixes)) > len(s)
@@ -173,7 +173,7 @@ def sol67(s="donesezichethofalij"):
     ["", "a", "aa", "aab", "aabc", "aabcd"]
     """
     return [s[:i] for i in range(len(s) + 1)]
-assert sat67(sol67())
+# assert sat67(sol67())
 
 def sat68(ans: str, n=15):
     return [int(i) for i in ans.split(' ')] == list(range(n + 1))
@@ -188,7 +188,7 @@ def sol68(n=15):
     '0 1 2 3 4'
     """
     return ' '.join(str(i) for i in range(n + 1))
-assert sat68(sol68())
+# assert sat68(sol68())
 
 def sat69(ans: List[str], s="The quick brown fox jumps over the lazy dog!", n=28):
     assert all(ans.count(c.lower()) == 1 for c in s)
@@ -206,5 +206,5 @@ def sol69(s="The quick brown fox jumps over the lazy dog!", n=28):
     ['h', 'e', 'l', 'o']
     """
     return list(set(s.lower()))
-assert sat69(sol69())
+# assert sat69(sol69())
 

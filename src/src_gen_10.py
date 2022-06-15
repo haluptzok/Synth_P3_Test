@@ -14,7 +14,7 @@ def sol100(nums=[132666041, 237412, 28141, -12, 11939, 912414, 17], upper=133658
     4
     """
     return sorted(nums)[len(nums) // 2] if nums else 0
-assert sat100(sol100())
+# assert sat100(sol100())
 
 def sat101(pals: List[bool], strs=['palindrome', 'madamimadam', '', 'foo', 'eyes', '(-:-)']):
     return all(pals[i] == (s == s[::-1]) for i, s in enumerate(strs))
@@ -29,7 +29,7 @@ def sol101(strs=['palindrome', 'madamimadam', '', 'foo', 'eyes', '(-:-)']):
     [True, False]
     """
     return [s == s[::-1] for s in strs]
-assert sat101(sol101())
+# assert sat101(sol101())
 
 def sat102(exp_poly: List[int], d=74152093423, poly=[1, 6, 3, 1, 0, 4, 4]):
     p = len(poly)
@@ -75,7 +75,7 @@ def sol102(d=74152093423, poly=[1, 6, 3, 1, 0, 4, 4]):
     # for i in range(d):
     #     ans = prod(ans, poly)
     return ans
-assert sat102(sol102())
+# assert sat102(sol102())
 
 def sat103(orig: str, result="Hello, world!", shift=7):
     n = len(result)
@@ -92,7 +92,7 @@ def sol103(result="Hello, world!", shift=7):
     'wfsz!hppe'
     """
     return "".join(chr(ord(c) - shift) for c in result)
-assert sat103(sol103())
+# assert sat103(sol103())
 
 def sat104(txt: str, text="Hello, world!"):
     n = 0
@@ -113,7 +113,7 @@ def sol104(text="Hello, world!"):
     'vry gd'
     """
     return "".join(c for c in text if c.lower() not in "aeiou")
-assert sat104(sol104())
+# assert sat104(sol104())
 
 def sat105(indexes: List[int], nums=[0, 2, 17, 4, 4213, 322, 102, 29, 15, 39, 55], thresh=100):
     j = 0
@@ -134,7 +134,7 @@ def sol105(nums=[0, 2, 17, 4, 4213, 322, 102, 29, 15, 39, 55], thresh=100):
     [0, 1, 3]
     """
     return [i for i, n in enumerate(nums) if n < thresh]
-assert sat105(sol105())
+# assert sat105(sol105())
 
 def sat106(n: int, nums=[10, 42, 17, 9, 1315182, 184, 102, 29, 15, 39, 755]):
     return sum(nums + [-n]) == 0
@@ -149,7 +149,7 @@ def sol106(nums=[10, 42, 17, 9, 1315182, 184, 102, 29, 15, 39, 755]):
     -6
     """
     return sum(nums)
-assert sat106(sol106())
+# assert sat106(sol106())
 
 def sat107(c: str, a="the quick brown fox jumped over the lazy dog", b="how vexingly quick daft zebras jump"):
     return (c in a) != (c in b)
@@ -164,7 +164,7 @@ def sol107(a="the quick brown fox jumped over the lazy dog", b="how vexingly qui
     't'  # or .?yI
     """
     return sorted(set(a).symmetric_difference(b))[0]
-assert sat107(sol107())
+# assert sat107(sol107())
 
 def sat108(nums: List[int], n=1402):
     return nums[0] == nums[1] == 1 and all(nums[i + 2] == nums[i + 1] + nums[i] for i in range(n - 2))
@@ -182,7 +182,7 @@ def sol108(n=1402):
     while len(ans) < n:
         ans.append(ans[-1] + ans[-2])
     return ans
-assert sat108(sol108())
+# assert sat108(sol108())
 
 def sat109(matches: List[int], brackets="<<>><<<><>><<>>>"):
     for i in range(len(brackets)):
@@ -211,5 +211,5 @@ def sol109(brackets="<<>><<<><>><<>>>"):
             matches[i] = j
             matches[j] = i
     return matches
-assert sat109(sol109())
+# assert sat109(sol109())
 

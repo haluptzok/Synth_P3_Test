@@ -8,7 +8,7 @@ def sol160(n=1099, count=49):
     3 => [0, 2]
     """
     return [i for i in range(0, n + 1, 2) if str(i) == str(i)[::-1]]
-assert sat160(sol160())
+# assert sat160(sol160())
 
 def sat161(pos: List[int], nums=[-804, 9124, -945, 2410, 0, 21, -123]):
     for n in pos + nums:
@@ -28,7 +28,7 @@ def sol161(nums=[-804, 9124, -945, 2410, 0, 21, -123]):
         return int(s[:2]) + sum(int(c) for c in s[2:]) <= 0
 
     return [n for n in nums if not bad(n)]
-assert sat161(sol161())
+# assert sat161(sol161())
 
 def sat162(original: List[int], arr=[2, 3, -1, -1, 0, 1, 1]):
     assert str(original)[1:-1] in str(sorted(original) * 2), "Not ring sorted"
@@ -52,7 +52,7 @@ def sol162(arr=[2, 3, -1, -1, 0, 1, 1]):
 
     candidates = [arr] + [arr[:i] + arr[i + 1:] for i in range(len(arr))]
     return next(near for near in candidates if sat162(near))
-assert sat162(sol162())
+# assert sat162(sol162())
 
 def sat163(swaps: List[List[int]], nums1=[1, 3, 2, 4, 5, 8, 7, 11], nums2=[0, 7, 0, 8, 19, 4, 41, 43, 42]):
     copy1 = nums1[:]
@@ -70,7 +70,7 @@ def sol163(nums1=[1, 3, 2, 4, 5, 8, 7, 11], nums2=[0, 7, 0, 8, 19, 4, 41, 43, 42
     odds = [i for i, n in enumerate(nums1) if n % 2 == 1]
     evens = [i for i, n in enumerate(nums2) if n % 2 == 0]
     return [[i, j] for i, j in zip(odds, evens)]
-assert sat163(sol163())
+# assert sat163(sol163())
 
 def sat164(s: str, counts={'a': 4, 'b': 17, 'd': 101, 'e': 0, 'f': 12}):
     chars = s.split()
@@ -83,7 +83,7 @@ def sol164(counts={'a': 4, 'b': 17, 'd': 101, 'e': 0, 'f': 12}):
     {"f": 1, "o": 2} => "oof"
     """
     return " ".join(c for c, i in counts.items() for _ in range(i))
-assert sat164(sol164())
+# assert sat164(sol164())
 
 def sat165(strings: List[str], a="this is a test", b="cat"):
     s, is_palindrome = strings
@@ -103,7 +103,7 @@ def sol165(a="this is a test", b="cat"):
     """
     s = "".join(c for c in a if c not in b)
     return [s, str(s == s[::-1])]
-assert sat165(sol165())
+# assert sat165(sol165())
 
 def sat166(answers: List[str], lst=['234515', '21503', '2506236943']):
     if len(answers) != len(lst):
@@ -122,7 +122,7 @@ def sol166(lst=['234515', '21503', '2506236943']):
     ["123", "2"] => ["2his is a 2es2", "0his a 0es0"]
     """
     return ["this is a test".replace("t", str(sum(c in "13579" for c in s))) for s in lst]
-assert sat166(sol166())
+# assert sat166(sol166())
 
 def sat167(start_end: List[int], base=7, p=50741, upper=-4897754):
     start, end = start_end
@@ -155,7 +155,7 @@ def sol167(base=7, p=50741, upper=-4897754):
         n = (n * base) % p
 
     return [best_start, best_end]
-assert sat167(sol167())
+# assert sat167(sol167())
 
 def sat168(wells: List[List[List[int]]], grid=[[1, 1, 0, 1, 1], [0, 0, 0, 0, 0], [1, 1, 0, 0, 1]], capacity=2):
     grid2 = [[0 for _ in row] for row in grid]
@@ -176,7 +176,7 @@ def sol168(grid=[[1, 1, 0, 1, 1], [0, 0, 0, 0, 0], [1, 1, 0, 0, 1]], capacity=2)
                     ans.append([])
                 ans[-1].append([i, j])
     return ans
-assert sat168(sol168())
+# assert sat168(sol168())
 
 def sat169(ordered: List[int], arr=[4, 2, 3, -1, 15, 2, 6, 9, 5, 16, 1048576]):
     if sorted(ordered) != sorted(arr):
@@ -188,5 +188,5 @@ def sol169(arr=[4, 2, 3, -1, 15, 2, 6, 9, 5, 16, 1048576]):
     [1, 2, 3, 4, 6] => [1, 2, 4, 3, 6]
     """
     return sorted(arr, key=lambda n: bin(n).count("1"))
-assert sat169(sol169())
+# assert sat169(sol169())
 

@@ -11,7 +11,7 @@ def sol180(interval1=[32157, 93210127]):
     a, b = interval1
     assert b - a >= 2
     return [a, a + 2]
-assert sat180(sol180())
+# assert sat180(sol180())
 
 def sat181(n: int, arr=[1, 7, -20052, 14, -3, -11, 1025235, 14]):
     tot = 0
@@ -38,7 +38,7 @@ def sol181(arr=[1, 7, -20052, 14, -3, -11, 1025235, 14]):
     if all(arr):
         return tot if sum(i < 0 for i in arr) % 2 == 0 else -tot
     return 0
-assert sat181(sol181())
+# assert sat181(sol181())
 
 def sat182(path: List[int], k=10, edges=[[2, 4], [3], [4, 1], [4], [0]]):
 
@@ -58,7 +58,7 @@ def sol182(k=10, edges=[[2, 4], [3], [4, 1], [4], [0]]):
     while len(path) < k:
         path.append(min(edges[path[-1]]) if path else 0)
     return path
-assert sat182(sol182())
+# assert sat182(sol182())
 
 def sat183(seq: List[int], length=181):
     return all(seq[n] == (seq[n - 1] + seq[n - 2] + seq[n + 1] if n % 2 else 1 + n // 2) for n in range(length))
@@ -73,7 +73,7 @@ def sol183(length=181):
         else:
             seq.append(sum(seq[-2:]) + (1 + (n + 1) // 2))
     return seq + [0]  # appending 0 at the end makes it easier so that seq[n-2] == 0 for n == 1
-assert sat183(sol183())
+# assert sat183(sol183())
 
 def sat184(prod: int, n=14235764939971075543215213):
 
@@ -95,7 +95,7 @@ def sol184(n=14235764939971075543215213):
                 prod *= int(c)
         return prod
     return 0
-assert sat184(sol184())
+# assert sat184(sol184())
 
 def sat185(valid: str, s="]]]]]]]]]]]]]]]]][][][][]]]]]]]]]]][[[][[][[[[[][][][]][[[[[[[[[[[[[[[[[["):
     assert valid in s
@@ -129,7 +129,7 @@ def sol185(s="]]]]]]]]]]]]]]]]][][][][]]]]]]]]]]][[[][[][[[[[][][][]][[[[[[[[[[[
                 nested = True
             left.pop()
     assert False
-assert sat185(sol185())
+# assert sat185(sol185())
 
 def sat186(running_squares: List[int], x=[201.1, 301.4, -18.1, 1244122.0, 10101.0101, 10000000.0]):
     for i, v in enumerate(x):
@@ -151,7 +151,7 @@ def sol186(x=[201.1, 301.4, -18.1, 1244122.0, 10101.0101, 10000000.0]):
         tot += ceil(v) ** 2
         running_squares.append(tot)
     return running_squares
-assert sat186(sol186())
+# assert sat186(sol186())
 
 def sat187(y: List[bool], x=['Hello, world!', 'cat', '', 'a test', 'test a', 'i e', 'o', 'I O U', 'You and I']):
     assert len(x) == len(y)
@@ -167,7 +167,7 @@ def sol187(x=['Hello, world!', 'cat', '', 'a test', 'test a', 'i e', 'o', 'I O U
     ["a b c", "abc"] => [True, False]
     """
     return [len(s.split(" ")[-1]) == 1 and s[-1].isalpha() for s in x]
-assert sat187(sol187())
+# assert sat187(sol187())
 
 def sat188(drop_indexes: List[int], nums=[2, -1, 14, 8, 9, 9, 8, 4, 2, 4, 3, -100, 1000, 18, 4, -2, -3, -3, 1, 0]):
     d = 0
@@ -182,7 +182,7 @@ def sol188(nums=[2, -1, 14, 8, 9, 9, 8, 4, 2, 4, 3, -100, 1000, 18, 4, -2, -3, -
     [1,2,3,0,2,4,1] => [3,6]
     """
     return [i for i in range(1, len(nums)) if nums[i] < nums[i - 1]]
-assert sat188(sol188())
+# assert sat188(sol188())
 
 def sat189(extremes: List[int], nums=[-10, -4, 100, -40, 2, 2, 3, 17, -50, -25, 18, 41, 9, 11, 15]):
     neg, pos = extremes
@@ -204,5 +204,5 @@ def sol189(nums=[-10, -4, 100, -40, 2, 2, 3, 17, -50, -25, 18, 41, 9, 11, 15]):
     pos = [n for n in nums if n > 0]
     neg = [n for n in nums if n < 0]
     return [max(neg) if neg else 0, min(pos) if pos else 0]
-assert sat189(sol189())
+# assert sat189(sol189())
 

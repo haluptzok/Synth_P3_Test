@@ -8,7 +8,7 @@ def sol330(a=15, b=27, upper_bound=150):
     while m > 0:
         m, n = n % m, m
     return a * (b // n)
-assert sat330(sol330())
+# assert sat330(sol330())
 
 def sat331(n: int, nums=[15, 27, 102], upper_bound=5000):
     return all(n % i == 0 for i in nums) and 0 < n <= upper_bound
@@ -21,7 +21,7 @@ def sol331(nums=[15, 27, 102], upper_bound=5000):
             m, n = n % m, m
         ans *= (i // n)
     return ans
-assert sat331(sol331())
+# assert sat331(sol331())
 
 def sat332(n: int, b=2, target=5):
     return (b ** n) % n == target
@@ -30,7 +30,7 @@ def sol332(b=2, target=5):
     for n in range(1, 10 ** 5):
         if pow(b, n, n) == target:
             return n
-assert sat332(sol332())
+# assert sat332(sol332())
 
 def sat333(nums: List[int], target=983):
     assert target % 9 not in [4, 5], "Hint"
@@ -46,7 +46,7 @@ def sol333(target=983):
                     return [i, j, k]
                 if n == -target:
                     return [-i, -j, -k]
-assert sat333(sol333())
+# assert sat333(sol333())
 
 def sat334(nums: List[int], n=12345):
     return len(nums) <= 4 and sum(i ** 2 for i in nums) == n
@@ -59,7 +59,7 @@ def sol334(n=12345):
         if m - s in sums_of_squares:
             return sums_of_squares[m - s] + sums_of_squares[s]
     assert False, "Should never reach here"
-assert sat334(sol334())
+# assert sat334(sol334())
 
 def sat335(i: int, n=241864633):
     return 1 < i < n and n % i == 0
@@ -73,7 +73,7 @@ def sol335(n=241864633):
             return i
 
     assert False, "problem defined for composite n only"
-assert sat335(sol335())
+# assert sat335(sol335())
 
 def sat336(n: int, g=44337, p=69337, t=38187):
     return pow(g, n, p) == t
@@ -83,7 +83,7 @@ def sol336(g=44337, p=69337, t=38187):
         if pow(g, n, p) == t:
             return n
     assert False, f"unsolvable discrete log problem g={g}, t={t}, p={p}"
-assert sat336(sol336())
+# assert sat336(sol336())
 
 def sat337(li: List[int], k=5):
     def prod(nums):
@@ -103,7 +103,7 @@ def sol337(k=5):
         prod *= n
         n = prod + 1
     return ans
-assert sat337(sol337())
+# assert sat337(sol337())
 
 def sat338(n: int, t=197, upper=20):
     m = n
@@ -132,12 +132,12 @@ def sol338(t=197, upper=20):
             prev = {n for n in curr if n <= bound} - seen
         if prev:
             return min(prev)
-assert sat338(sol338())
+# assert sat338(sol338())
 
 def sat339(n: int):
     return pow(2, n, n) == 3
 def sol339():
     """Find n  such that 2^n mod n = 3"""
     return 4700063497
-assert sat339(sol339())
+# assert sat339(sol339())
 

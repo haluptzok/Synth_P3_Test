@@ -8,7 +8,7 @@ def sat290(t: str, s="))(Add)some))parens()to()(balance(()(()(me!)(((("):
 def sol290(s="))(Add)some))parens()to()(balance(()(()(me!)(((("):
     """Add parentheses to the beginning and end of s to make all parentheses balanced"""
     return "(" * s.count(")") + s + ")" * s.count("(")
-assert sat290(sol290())
+# assert sat290(sol290())
 
 def sat291(squares: List[List[int]], m=8, n=8):
     k = min(m, n)
@@ -24,7 +24,7 @@ def sol291(m=8, n=8):
         if 4 * k == len(
                 {t for i, j in enumerate(p) for t in [('row', i), ('col', j), ('SE', i + j), ('NE', i - j)]}):
             return [[i, j] for i, j in enumerate(p)]
-assert sat291(sol291())
+# assert sat291(sol291())
 
 def sat292(squares: List[List[int]], m=9, n=9):
     k = min(m, n)
@@ -51,7 +51,7 @@ def sol292(m=9, n=9):
         ans += [[i, 2 * i + 1] for i in range(t // 2)]
         ans += [[i + t // 2, 2 * i] for i in range(t // 2)]
     return ans
-assert sat292(sol292())
+# assert sat292(sol292())
 
 def sat293(tour: List[List[int]], m=8, n=8):
     assert all({abs(i1 - i2), abs(j1 - j2)} == {1, 2} for [i1, j1], [i2, j2] in zip(tour, tour[1:])), 'legal moves'
@@ -77,7 +77,7 @@ def sol293(m=8, n=8):
                 break
             ans.append(min(candidates, key=lambda z: len(possible(*z)) + r.random()))
             free.remove(ans[-1])
-assert sat293(sol293())
+# assert sat293(sol293())
 
 def sat294(seq: List[int], compressed_len=17, text="Hellooooooooooooooooooooo world!"):
     index = [chr(i) for i in range(256)]
@@ -107,7 +107,7 @@ def sol294(compressed_len=17, text="Hellooooooooooooooooooooo world!"):
         seq.append(index[buffer])
 
     return seq
-assert sat294(sol294())
+# assert sat294(sol294())
 
 def sat295(words: List[str], num=100, bits=100, dist=34):
     assert len(words) == num and all(len(word) == bits and set(word) <= {"0", "1"} for word in words)
@@ -120,7 +120,7 @@ def sol295(num=100, bits=100, dist=34):
         seqs = [r.getrandbits(bits) for _ in range(num)]
         if all(bin(seqs[i] ^ seqs[j]).count("1") >= dist for i in range(num) for j in range(i)):
             return [bin(s)[2:].rjust(bits, '0') for s in seqs]
-assert sat295(sol295())
+# assert sat295(sol295())
 
 def sat296(init: List[List[int]], period=3):
     target = {x + y * 1j for x, y in init}  # complex numbers encode live cells
@@ -177,7 +177,7 @@ def sol296(period=3):
             live = {z for z in visible if sum(z + d in live for d in deltas) in range(3 - (z in live), 4)}
 
     return None  # failed
-assert sat296(sol296())
+# assert sat296(sol296())
 
 def sat297(position: List[List[int]], target=[[1, 3], [1, 4], [2, 5]]):
     live = {x + y * 1j for x, y in position}  # complex numbers encode live cells
@@ -215,7 +215,7 @@ def sol297(target=[[1, 3], [1, 4], [2, 5]]):
             pos.symmetric_difference_update({z})
             cur_dist = dist
     print('Failed', len(target), step)
-assert sat297(sol297())
+# assert sat297(sol297())
 
 def sat298(moves: List[List[int]], initial_state=[5, 9, 3, 11, 18, 25, 1, 2, 4, 1]):
 
@@ -271,7 +271,7 @@ def sol298(initial_state=[5, 9, 3, 11, 18, 25, 1, 2, 4, 1]):
         if max(state) == 0:
             return moves
         bot_move()
-assert sat298(sol298())
+# assert sat298(sol298())
 
 def sat299(transcripts: List[str], max_moves=10):
     COLORS = "ABCDEF"
@@ -352,5 +352,5 @@ def sol299(max_moves=10):
     mastermind()
 
     return transcripts
-assert sat299(sol299())
+# assert sat299(sol299())
 

@@ -17,7 +17,7 @@ def sol130(n=42714774173606970182754018064350848294149432972747296768):
     while x ** 3 != m:
         x += (m - x ** 3) // (3 * x ** 2)
     return -x if n < 0 else x
-assert sat130(sol130())
+# assert sat130(sol130())
 
 def sat131(primes: List[bool], n="A4D4455214122CE192CCBE3"):
     return all(primes[i] == (c in "2357BD") for i, c in enumerate(n))
@@ -31,7 +31,7 @@ def sol131(n="A4D4455214122CE192CCBE3"):
     [False, True, True, False, True, False True]
     """
     return [c in "2357BD" for c in n]
-assert sat131(sol131())
+# assert sat131(sol131())
 
 def sat132(b: str, n=5324680297138495285):
     assert b[:4] == b[-4:] == 'bits'
@@ -52,7 +52,7 @@ def sol132(n=5324680297138495285):
     """
     s = bin(n)[2:]
     return f'bits{s}bits'
-assert sat132(sol132())
+# assert sat132(sol132())
 
 def sat133(indices: List[int], s="I am an unhappy string!"):
     i, j = indices
@@ -70,7 +70,7 @@ def sol133(s="I am an unhappy string!"):
             return [i, i + 1]
         if s[i] == s[i + 2]:
             return [i, i + 2]
-assert sat133(sol133())
+# assert sat133(sol133())
 
 def sat134(grades: List[str], gpas=[2.8, 3.1, 4.0, 2.2, 3.1, 2.5, 0.9]):
     assert len(grades) == len(gpas)
@@ -107,7 +107,7 @@ def sol134(gpas=[2.8, 3.1, 4.0, 2.2, 3.1, 2.5, 0.9]):
             i += 1
         ans.append(letters[i])
     return ans
-assert sat134(sol134())
+# assert sat134(sol134())
 
 def sat135(factor: str, s="catscatcatscatcatscat"):
     return len(factor) < len(s) and s == factor * (len(s) // len(factor))
@@ -121,7 +121,7 @@ def sol135(s="catscatcatscatcatscat"):
     """
     n = len(s)
     return next(s[:i] for i in range(1, len(s)) if s == s[:i] * (n // i))
-assert sat135(sol135())
+# assert sat135(sol135())
 
 def sat136(nums: List[int], n=5):
     count = 18 * (10 ** (n - 2)) if n > 1 else 1
@@ -137,7 +137,7 @@ def sol136(n=5):
         if str(i).startswith("1") or str(i).endswith("1"):
             ans.append(i)
     return ans
-assert sat136(sol136())
+# assert sat136(sol136())
 
 def sat137(n: int, b=107, s=25):
     n_str = bin(n)[2:]  # n in binary
@@ -148,7 +148,7 @@ def sol137(b=107, s=25):
     b=3, s=2 => 5 # 5 is 101 in binary
     """
     return int("1" * s + "0" * (b - s), 2)
-assert sat137(sol137())
+# assert sat137(sol137())
 
 def sat138(even_odd_sum: int, nums=[2341, 125146894, 12521, -12451293476325, 535284623934, 132974693614350]):
     for i in nums[1::2]:
@@ -161,7 +161,7 @@ def sol138(nums=[2341, 125146894, 12521, -12451293476325, 535284623934, 13297469
     [1, 2, 8, 3, 9, 4] => 6
     """
     return sum(i for i in nums[1::2] if i % 2 == 0)
-assert sat138(sol138())
+# assert sat138(sol138())
 
 def sat139(s: str, orig="Hello world!!!"):
     for a, b in zip(s.split(' '), orig.split(' ')):
@@ -178,5 +178,5 @@ def sol139(orig="Hello world!!!"):
     'almost oww'
     """
     return " ".join("".join(sorted(w)) for w in orig.split(' '))
-assert sat139(sol139())
+# assert sat139(sol139())
 

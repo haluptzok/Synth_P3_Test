@@ -5,7 +5,7 @@ def sat260(nums: List[int], tot=12345, n=5):
 def sol260(tot=12345, n=5):
     """Find n distinct positive odd integers that sum to tot"""
     return list(range(1, 2 * n - 1, 2)) + [tot - sum(range(1, 2 * n - 1, 2))]
-assert sat260(sol260())
+# assert sat260(sol260())
 
 def sat261(rotations: List[int], target="wonderful", upper=69):
     s = "abcdefghijklmnopqrstuvwxyz"
@@ -34,7 +34,7 @@ def sol261(target="wonderful", upper=69):
         s = s[r:] + s[:r]
         assert s[0] == c
     return ans
-assert sat261(sol261())
+# assert sat261(sol261())
 
 def sat262(bills: List[int], denominations=[1, 25, 35, 84], n=980, max_len=14):
     return sum(bills) == n and all(b in denominations for b in bills) and len(bills) <= max_len
@@ -54,7 +54,7 @@ def sol262(denominations=[1, 25, 35, 84], n=980, max_len=14):
         seqs.append([*s[:j], s[j] + 1, *s[j + 1:-1], s[-1] + 1])
 
     return [k for k, count in zip(denominations, seqs[-1]) for _ in range(count)]
-assert sat262(sol262())
+# assert sat262(sol262())
 
 def sat263(sides: List[int], options=[2, 512, 1024], n=340282366920938463463374607431768211456, max_dim=13):
     prod = 1
@@ -86,7 +86,7 @@ def sol263(options=[2, 512, 1024], n=340282366920938463463374607431768211456, ma
         seqs.append([*s[:j], s[j] + 1, *s[j + 1:-1], s[-1] + 1])
 
     return [base ** k for k, count in zip(denominations, seqs[-1]) for _ in range(count)]
-assert sat263(sol263())
+# assert sat263(sol263())
 
 def sat264(x: float, coeffs=[2.5, 1.3, -0.5]):
     a, b, c = coeffs
@@ -102,7 +102,7 @@ def sol264(coeffs=[2.5, 1.3, -0.5]):
     else:
         ans = ((-b + (b ** 2 - 4 * a * c) ** 0.5) / (2 * a))
     return ans
-assert sat264(sol264())
+# assert sat264(sol264())
 
 def sat265(roots: List[float], coeffs=[1.3, -0.5]):
     b, c = coeffs
@@ -113,7 +113,7 @@ def sol265(coeffs=[1.3, -0.5]):
     b, c = coeffs
     delta = (b ** 2 - 4 * c) ** 0.5
     return [(-b + delta) / 2, (-b - delta) / 2]
-assert sat265(sol265())
+# assert sat265(sol265())
 
 def sat266(x: float, coeffs=[2.0, 1.0, 0.0, 8.0]):
     return abs(sum(c * x ** (3 - i) for i, c in enumerate(coeffs))) < 1e-6
@@ -134,7 +134,7 @@ def sol266(coeffs=[2.0, 1.0, 0.0, 8.0]):
                 x = complex(w - p / (3 * w) - a2 / 3).real
                 if abs(sum(c * x ** (3 - i) for i, c in enumerate(coeffs))) < 1e-6:
                     return x
-assert sat266(sol266())
+# assert sat266(sol266())
 
 def sat267(roots: List[float], coeffs=[1.0, -2.0, -1.0]):
     r1, r2, r3 = roots
@@ -161,19 +161,19 @@ def sol267(coeffs=[1.0, -2.0, -1.0]):
                         ans.append(x)
     if len(ans) == 3:
         return ans
-assert sat267(sol267())
+# assert sat267(sol267())
 
 def sat268(x: str, s=679):
     return s == sum([int(d) for d in x])
 def sol268(s=679):
     """Find a number that its digits sum to a specific value."""
     return int(s / 9) * '9' + str(s % 9)
-assert sat268(sol268())
+# assert sat268(sol268())
 
 def sat269(z: float, v=9, d=0.0001):
     return int(z * 1 / d % 10) == v
 def sol269(v=9, d=0.0001):
     """Create a float with a specific decimal."""
     return v * d
-assert sat269(sol269())
+# assert sat269(sol269())
 

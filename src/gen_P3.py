@@ -68,7 +68,7 @@ for puzzle in js_puzzles:
 
     f_src.write(sol_body)
     f_src.write("\n")
-    f_src.write("assert sat" + str(index) + "(sol" + str(index) + "())\n\n")
+    f_src.write("# assert sat" + str(index) + "(sol" + str(index) + "())\n\n")
     
     # In the test file write the test
     f_tst.write("def test" + str(index) + "():\n")

@@ -8,14 +8,14 @@ def sat250(indexes: List[int], target=[1, 3, 4, 2, 5, 6, 7, 13, 12, 11, 9, 10, 8
 def sol250(target=[1, 3, 4, 2, 5, 6, 7, 13, 12, 11, 9, 10, 8]):
     """Given a list of integers representing a permutation, invert the permutation."""
     return [1, 4, 2, 3, 5, 6, 7, 13, 11, 12, 10, 9, 8]
-assert sat250(sol250())
+# assert sat250(sol250())
 
 def sat251(s: str, n=7012):
     return int(str(5 ** n)[:-2] + s) == 5 ** n
 def sol251(n=7012):
     """What are the last two digits of 5^n?"""
     return ("1" if n == 0 else "5" if n == 1 else "25")
-assert sat251(sol251())
+# assert sat251(sol251())
 
 def sat252(states: List[str], start="424", combo="778", target_len=12):
     assert all(len(s) == len(start) for s in states) and all(c in "0123456789" for s in states for c in s)
@@ -45,7 +45,7 @@ def sol252(start="424", combo="778", target_len=12):
             if a != b:
                 ans.append("".join(str(i) for i in a))
     return ans
-assert sat252(sol252())
+# assert sat252(sol252())
 
 def sat253(states: List[str], start="424", combo="778", target_len=12):
     return all(sum((int(a[i]) - int(b[i])) ** 2 % 10 for i in range(len(start))) == 1
@@ -61,14 +61,14 @@ def sol253(start="424", combo="778", target_len=12):
             if a != b:
                 ans.append("".join(str(i) for i in a))
     return ans
-assert sat253(sol253())
+# assert sat253(sol253())
 
 def sat254(s: str, perm="qwertyuiopasdfghjklzxcvbnm", target="hello are you there?"):
     return "".join((perm[(perm.index(c) + 1) % len(perm)] if c in perm else c) for c in s) == target
 def sol254(perm="qwertyuiopasdfghjklzxcvbnm", target="hello are you there?"):
     """Find a string that, when a given permutation of characters is applied, has a given result."""
     return "".join((perm[(perm.index(c) - 1) % len(perm)] if c in perm else c) for c in target)
-assert sat254(sol254())
+# assert sat254(sol254())
 
 def sat255(lists: List[List[int]], items=[5, 4, 9, 4, 5, 5, 5, 1, 5, 5], length=4):
     a, b = lists
@@ -91,28 +91,28 @@ def sol255(items=[5, 4, 9, 4, 5, 5, 5, 1, 5, 5], length=4):
     seen = {a}
     dedup = [i for i in items if i not in seen and not seen.add(i)]
     return [(dedup + [a])[:length], [a] * length]
-assert sat255(sol255())
+# assert sat255(sol255())
 
 def sat256(seq: List[int], n=10000, length=5017):
     return all(i in [1, 2] for i in seq) and sum(seq) == n and len(seq) == length
 def sol256(n=10000, length=5017):
     """Find a sequence of 1's and 2's of a given length that that adds up to n"""
     return [2] * (n - length) + [1] * (2 * length - n)
-assert sat256(sol256())
+# assert sat256(sol256())
 
 def sat257(start: int, k=3, upper=6, seq=[17, 1, 2, 65, 18, 91, -30, 100, 3, 1, 2]):
     return 0 <= start <= len(seq) - k and sum(seq[start:start + k]) <= upper
 def sol257(k=3, upper=6, seq=[17, 1, 2, 65, 18, 91, -30, 100, 3, 1, 2]):
     """Find a sequence of k consecutive indices whose sum is minimal"""
     return min(range(len(seq) - k + 1), key=lambda start: sum(seq[start:start + k]))
-assert sat257(sol257())
+# assert sat257(sol257())
 
 def sat258(start: int, k=3, lower=150, seq=[3, 1, 2, 65, 18, 91, -30, 100, 0, 19, 52]):
     return 0 <= start <= len(seq) - k and sum(seq[start:start + k]) >= lower
 def sol258(k=3, lower=150, seq=[3, 1, 2, 65, 18, 91, -30, 100, 0, 19, 52]):
     """Find a sequence of k consecutive indices whose sum is maximal"""
     return max(range(len(seq) - k + 1), key=lambda start: sum(seq[start:start + k]))
-assert sat258(sol258())
+# assert sat258(sol258())
 
 def sat259(start: int, k=3, lower=100000, seq=[91, 1, 2, 64, 18, 91, -30, 100, 3, 65, 18]):
     prod = 1
@@ -128,5 +128,5 @@ def sol259(k=3, lower=100000, seq=[91, 1, 2, 64, 18, 91, -30, 100, 3, 65, 18]):
         return ans
 
     return max(range(-len(seq), len(seq) - k + 1), key=prod)
-assert sat259(sol259())
+# assert sat259(sol259())
 

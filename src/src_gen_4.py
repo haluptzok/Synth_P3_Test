@@ -30,7 +30,7 @@ def sol40(side=10, num_points=20):
         grid = [[i, j] for i in range(side // 2) for j in range(side // 2)]
         return next(list(mirror(coords)) for coords in combinations(grid, side // 2) if
                     test(coords) and test(mirror(coords)))
-assert sat40(sol40())
+# assert sat40(sol40())
 
 def sat41(stamps: List[int], target=80, max_stamps=4, options=[10, 32, 8]):
     for s in stamps:
@@ -43,7 +43,7 @@ def sol41(target=80, max_stamps=4, options=[10, 32, 8]):
         for c in combinations_with_replacement(options, n):
             if sum(c) == target:
                 return list(c)
-assert sat41(sol41())
+# assert sat41(sol41())
 
 def sat42(x: str, puz="____9_2___7__________1_8_4____2_78____4_____1____69____2_8___5__6__3_7___49______"):
     assert all(c == "_" or c == s for (c, s) in zip(puz, x))
@@ -124,7 +124,7 @@ def sol42(puz="____9_2___7__________1_8_4____2_78____4_____1____69____2_8___5__6
     solve_helper()
     assert ans, "No solution found"
     return ans[0]
-assert sat42(sol42())
+# assert sat42(sol42())
 
 def sat43(xy_sides: List[List[int]]):
     n = max(x + side for x, y, side in xy_sides)
@@ -143,7 +143,7 @@ def sol43():
     return [[0, 0, 50], [0, 50, 29], [0, 79, 33], [29, 50, 25], [29, 75, 4], [33, 75, 37], [50, 0, 35],
             [50, 35, 15], [54, 50, 9], [54, 59, 16], [63, 50, 2], [63, 52, 7], [65, 35, 17], [70, 52, 18],
             [70, 70, 42], [82, 35, 11], [82, 46, 6], [85, 0, 27], [85, 27, 8], [88, 46, 24], [93, 27, 19]]
-assert sat43(sol43())
+# assert sat43(sol43())
 
 def sat44(n: int, lace="bbrbrbbbbbbrrrrrrrbrrrrbbbrbrrbbbrbrrrbrrbrrbrbbrrrrrbrbbbrrrbbbrbbrbbbrbrbb"):
     sub = lace[n: n + len(lace) // 2]
@@ -156,7 +156,7 @@ def sol44(lace="bbrbrbbbbbbrrrrrrrbrrrrbbbrbrrbbbrbrrrbrrbrrbrbbrrrrrbrbbbrrrbbb
     if lace == "":
         return 0
     return next(n for n in range(len(lace) // 2) if lace[n: n + len(lace) // 2].count("r") == len(lace) // 4)
-assert sat44(sol44())
+# assert sat44(sol44())
 
 def sat45(n: int):
     s = str(n * n)
@@ -168,14 +168,14 @@ def sol45():
     for n in range(10 ** 5):
         if sorted([int(s) for s in str(n * n)]) == list(range(10)):
             return n
-assert sat45(sol45())
+# assert sat45(sol45())
 
 def sat46(nums: List[int]):
     return [sorted([int(s) for s in str(n * n)]) for n in set(nums)] == [list(range(10))] * 174
 def sol46():
     """Find all 174 integers whose 10-digit square has all digits 0-9 just once."""
     return [i for i in range(-10 ** 5, 10 ** 5) if sorted([int(s) for s in str(i * i)]) == list(range(10))]
-assert sat46(sol46())
+# assert sat46(sol46())
 
 def sat47(expr: str, nums=[3, 7, 3, 7]):
     assert len(nums) == 4 and 1 <= min(nums) and max(nums) <= 13, "hint: nums is a list of four ints in 1..13"
@@ -222,19 +222,19 @@ def sol47(nums=[3, 7, 3, 7]):
     for x in derivations:
         if abs(x - 24.0) < 1e-6:
             return derivations[x]
-assert sat47(sol47())
+# assert sat47(sol47())
 
 def sat48(s: str):
     return set(s) <= set("18-+*/") and s.count("8") == 2 and s.count("1") == 1 and eval(s) == 63
 def sol48():
     """Find a formula using two 8s and two 1's and -+*/ that evaluates to 1."""
     return "8*8-1"
-assert sat48(sol48())
+# assert sat48(sol48())
 
 def sat49(s: str):
     return set(s) <= set("18-+*/") and s.count("8") == 3 and s.count("1") == 1 and eval(s) == 63
 def sol49():
     """Find an expression using two 8s and two 1's and -+*/ that evaluates to 1."""
     return "8*8-1**8"
-assert sat49(sol49())
+# assert sat49(sol49())
 

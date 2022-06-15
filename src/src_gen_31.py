@@ -15,7 +15,7 @@ def sol310(edges=[[0, 1], [0, 2], [1, 3], [1, 4], [2, 5], [3, 4], [5, 6], [6, 7]
             if i in paths and j not in paths:
                 paths[j] = paths[i] + [j]
     return paths.get(n)
-assert sat310(sol310())
+# assert sat310(sol310())
 
 def sat311(path: List[int], edges=[[0, 1], [0, 2], [1, 3], [1, 4], [2, 5], [3, 4], [5, 6], [6, 7], [1, 2]]):
     assert path[0] == 0 and path[-1] == max(max(e) for e in edges)
@@ -33,7 +33,7 @@ def sol311(edges=[[0, 1], [0, 2], [1, 3], [1, 4], [2, 5], [3, 4], [5, 6], [6, 7]
             if i in odd_paths and j not in even_paths:
                 even_paths[j] = odd_paths[i] + [j]
     return even_paths.get(n)
-assert sat311(sol311())
+# assert sat311(sol311())
 
 def sat312(p: List[int], edges=[[0, 1], [0, 2], [1, 3], [1, 4], [2, 5], [3, 4], [5, 6], [6, 7], [6, 1]]):
     return p[0] == 0 and p[-1] == 1 == len(p) % 2 and all([[a, b] in edges for a, b in zip(p, p[1:])])
@@ -49,7 +49,7 @@ def sol312(edges=[[0, 1], [0, 2], [1, 3], [1, 4], [2, 5], [3, 4], [5, 6], [6, 7]
             if i in odd_paths and j not in even_paths:
                 even_paths[j] = odd_paths[i] + [j]
     return odd_paths.get(n)
-assert sat312(sol312())
+# assert sat312(sol312())
 
 def sat313(edges: List[List[int]], z=20, n=5, t=3):
     from itertools import combinations
@@ -71,7 +71,7 @@ def sol313(z=20, n=5, t=3):
                for left in combinations(range(n), t)
                for right in combinations(range(n), t)):
             return [[a, b] for a, b in edges]
-assert sat313(sol313())
+# assert sat313(sol313())
 
 def sat314(bi: List[int], g1=[[0, 1], [1, 2], [2, 3], [3, 4], [2, 5]], g2=[[0, 4], [1, 5], [4, 1], [1, 2], [2, 3]]):
     return len(bi) == len(set(bi)) and {(i, j) for i, j in g1} == {(bi[i], bi[j]) for i, j in g2}
@@ -88,7 +88,7 @@ def sol314(g1=[[0, 1], [1, 2], [2, 3], [3, 4], [2, 5]], g2=[[0, 4], [1, 5], [4, 
         if all((pi[i], pi[j]) in g1_set for i, j in g2):
             return list(pi)
     assert False, f"Graphs are not isomorphic {g1}, {g2}"
-assert sat314(sol314())
+# assert sat314(sol314())
 
 def sat315(li: List[int]):
     return all(j in {i - 1, i + 1, 3 * i} for i, j in zip([0] + li, li + [128])) and len(li) == 9
@@ -98,7 +98,7 @@ def sol315():
     the previous one by one or is thrice the previous one.
     """
     return [1, 3, 4, 12, 13, 14, 42, 126, 127]
-assert sat315(sol315())
+# assert sat315(sol315())
 
 def sat316(perms: List[List[int]], prices0=[7, 7, 9, 5, 3, 7, 1, 2], prices1=[5, 5, 5, 4, 2, 5, 1, 1], heights0=[2, 4, 9, 3, 8, 5, 5, 4], heights1=[1, 3, 8, 1, 5, 4, 4, 2]):
     n = len(prices0)
@@ -131,7 +131,7 @@ def sol316(prices0=[7, 7, 9, 5, 3, 7, 1, 2], prices1=[5, 5, 5, 4, 2, 5, 1, 1], h
             to_fix[i], to_fix[j] = to_fix[j], to_fix[i]
 
     return orders
-assert sat316(sol316())
+# assert sat316(sol316())
 
 def sat317(indices: List[int], H=60, alpha=18, beta=2, xs=[0, 10, 20, 30, 50, 80, 100, 120, 160, 190, 200], ys=[0, 30, 10, 30, 50, 40, 10, 20, 20, 55, 10], thresh=26020):
     assert sorted({0, len(xs) - 1, *indices}) == indices, f"Ans. should be sorted list [0, ..., {len(xs) - 1}]"
@@ -186,7 +186,7 @@ def sol317(H=60, alpha=18, beta=2, xs=[0, 10, 20, 30, 50, 80, 100, 120, 160, 190
     while rev_ans[-1] != 0:
         rev_ans.append(prior[rev_ans[-1]])
     return rev_ans[::-1]
-assert sat317(sol317())
+# assert sat317(sol317())
 
 def sat318(position: List[List[int]], transcript=[[[3, 3], [5, 5], [3, 7]], [[5, 3], [6, 4]]]):
     board = {(x, y): 0 for x in range(8) for y in range(8) if (x + y) % 2 == 0}  # empty board, 0 = empty
@@ -356,7 +356,7 @@ def sol318(transcript=[[[3, 3], [5, 5], [3, 7]], [[5, 3], [6, 4]]]):
         return list(opts.opts)[0]
 
     return [[x, y, get_opt(opts)] for (x, y), opts in init_opts.items()]
-assert sat318(sol318())
+# assert sat318(sol318())
 
 def sat319(cut_position: int, ring="yRrsmOkLCHSDJywpVDEDsjgCwSUmtvHMefxxPFdmBIpM", lower=5):
     line = ring[cut_position:] + ring[:cut_position]
@@ -395,5 +395,5 @@ def sol319(ring="yRrsmOkLCHSDJywpVDEDsjgCwSUmtvHMefxxPFdmBIpM", lower=5):
     for i in range(n):
         if scores[i] == b:
             return i
-assert sat319(sol319())
+# assert sat319(sol319())
 

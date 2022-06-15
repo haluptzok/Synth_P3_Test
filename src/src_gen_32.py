@@ -61,7 +61,7 @@ def sol320(n=16385):
     state[-1] = 2 ** n
     ans.append(state)
     return ans
-assert sat320(sol320())
+# assert sat320(sol320())
 
 def sat321(nums: List[int], b=7, m=6):
     assert len(nums) == len(set(nums)) == m and min(nums) >= 0
@@ -125,7 +125,7 @@ def sol321(b=7, m=6):
         a += 1
 
     return ans
-assert sat321(sol321())
+# assert sat321(sol321())
 
 def sat322(indices: List[int], a0=123):
     assert a0 >= 0 and a0 % 3 == 0, "Hint: a_0 is a multiple of 3."
@@ -159,7 +159,7 @@ def sol322(a0=123):
         n = int(n ** 0.5) if int(n ** 0.5) ** 2 == n else n + 3
         i += 1
     return ans
-assert sat322(sol322())
+# assert sat322(sol322())
 
 def sat323(keep: List[bool], heights=[10, 2, 14, 1, 8, 19, 16, 6, 12, 3, 17, 0, 9, 18, 5, 7, 11, 13, 15, 4]):
     n = int(len(heights) ** 0.5)
@@ -204,7 +204,7 @@ def sol323(heights=[10, 2, 14, 1, 8, 19, 16, 6, 12, 3, 17, 0, 9, 18, 5, 7, 11, 1
         used_groups.add(groups[b])
         a = b + 1
     return ans
-assert sat323(sol323())
+# assert sat323(sol323())
 
 def sat324(li: List[int], n=18):
     assert n % 3 == 0, "Hint: n is a multiple of 3"
@@ -224,7 +224,7 @@ def sol324(n=18):
     (Sample output hidden because showing sample output would give away too much information.)
     """
     return [-1, -1, 2] * (n // 3)
-assert sat324(sol324())
+# assert sat324(sol324())
 
 def sat325(li: List[int], tags=[3, 0, 3, 2, 0, 1, 0, 3, 1, 1, 2, 2, 0, 2, 1, 3]):
     n = max(tags) + 1
@@ -302,7 +302,7 @@ def sol325(tags=[3, 0, 3, 2, 0, 1, 0, 3, 1, 1, 2, 2, 0, 2, 1, 3]):
                 ans += p
 
     return ans
-assert sat325(sol325())
+# assert sat325(sol325())
 
 def sat326(inds: List[int], vecs=[169, 203, 409, 50, 37, 479, 370, 133, 53, 159, 161, 367, 474, 107, 82, 447, 385]):
     return all(sum((v >> i) & 1 for i in inds) % 2 == 1 for v in vecs)
@@ -337,7 +337,7 @@ def sol326(vecs=[169, 203, 409, 50, 37, 479, 370, 133, 53, 159, 161, 367, 474, 1
                     v[j] ^= w[j]
 
     return [i for i in range(d) if pool[i][-1]]
-assert sat326(sol326())
+# assert sat326(sol326())
 
 def sat327(inds: List[int], vecs=[26, 5, 32, 3, 15, 18, 31, 13, 24, 25, 34, 5, 15, 24, 16, 13, 0, 27, 37]):
     return sum(sum((v >> i) & 1 for i in inds) % 2 for v in vecs) >= len(vecs) * 3 / 4
@@ -362,7 +362,7 @@ def sol327(vecs=[26, 5, 32, 3, 15, 18, 31, 13, 24, 25, 34, 5, 15, 24, 16, 13, 0,
         ans = [i for i in range(d) if rand.randrange(2)]
         if sum(sum(v[i] for i in ans) % 2 for v in vecs) >= len(vecs) * 3 / 4:
             return ans
-assert sat327(sol327())
+# assert sat327(sol327())
 
 def sat328(n: int, a=15482, b=23223, lower_bound=5):
     return a % n == 0 and b % n == 0 and n >= lower_bound
@@ -372,7 +372,7 @@ def sol328(a=15482, b=23223, lower_bound=5):
     while m > 0:
         m, n = n % m, m
     return n
-assert sat328(sol328())
+# assert sat328(sol328())
 
 def sat329(n: int, nums=[77410, 23223, 54187], lower_bound=2):
     return all(i % n == 0 for i in nums) and n >= lower_bound
@@ -384,5 +384,5 @@ def sol329(nums=[77410, 23223, 54187], lower_bound=2):
         while m > 0:
             m, n = n % m, m
     return n
-assert sat329(sol329())
+# assert sat329(sol329())
 

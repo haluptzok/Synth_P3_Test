@@ -19,7 +19,7 @@ def sol150(nums=[17, 24, 39, 15, 11, 201, 97, 65, 18]):
     for n in nums:
         prod *= abs(n % 10)
     return prod
-assert sat150(sol150())
+# assert sat150(sol150())
 
 def sat151(positions: List[int], s="ThIs is A tEsT, Or *IS* iT?"):
     assert all(s[i] in "AEIOU" for i in positions)
@@ -30,7 +30,7 @@ def sol151(s="ThIs is A tEsT, Or *IS* iT?"):
     "EAT here NOW" => [0, 10]
     """
     return [i for i, c in enumerate(s) if i % 2 == 0 and c in "AEIOU"]
-assert sat151(sol151())
+# assert sat151(sol151())
 
 def sat152(n: int, x=329437923.5):
     return abs(n - x) <= 0.5
@@ -44,7 +44,7 @@ def sol152(x=329437923.5):
     4
     """
     return round(x)
-assert sat152(sol152())
+# assert sat152(sol152())
 
 def sat153(li: List[int], n=909):
     return li[0] == n and len(li) == n and all(b - a == 2 for a, b in zip(li, li[1:]))
@@ -56,7 +56,7 @@ def sol153(n=909):
     2 => [2, 4]
     """
     return [n + 2 * i for i in range(n)]
-assert sat153(sol153())
+# assert sat153(sol153())
 
 def sat154(splits: List[List[str]], string="Hello, world!  You look like you're on turtles."):
     words, separators = splits
@@ -77,7 +77,7 @@ def sol154(string="Hello, world!  You look like you're on turtles."):
     import re
     merged = re.split(r"([ ,]+)", string)
     return [merged[::2], merged[1::2]]
-assert sat154(sol154())
+# assert sat154(sol154())
 
 def sat155(x: int, a=145, b=24126846790974):
     if x == -1:
@@ -95,7 +95,7 @@ def sol155(a=145, b=24126846790974):
     if a > b or (a == b and a % 2 == 1):
         return -1
     return b if b % 2 == 0 else b - 1
-assert sat155(sol155())
+# assert sat155(sol155())
 
 def sat156(s: str, a=-103252, b=10657):
     n = int(s, 2)
@@ -114,7 +114,7 @@ def sol156(a=-103252, b=10657):
     if len(r) == 0:
         return "-1"
     return bin(round(sum(r) / len(r)))
-assert sat156(sol156())
+# assert sat156(sol156())
 
 def sat157(sub: List[int], nums=[17, 20, -100, 101, 423258, 19949, 0, 20174, 9351773, -11]):
     for i in range(len(sub)):
@@ -134,7 +134,7 @@ def sol157(nums=[17, 20, -100, 101, 423258, 19949, 0, 20174, 9351773, -11]):
     [17, 21, 18, 1, 4] => [1, 17, 21]
     """
     return sorted(n for n in nums if all(int(c) % 2 for c in str(abs(n))))
-assert sat157(sol157())
+# assert sat157(sol157())
 
 def sat158(backwards_digits: List[str], nums=[0, 2, 14, -2, 3, 8, 4, 5, 5, 7, 21, 101, 41, 2, 9, 6]):
     digits = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9}
@@ -151,7 +151,7 @@ def sol158(nums=[0, 2, 14, -2, 3, 8, 4, 5, 5, 7, 21, 101, 41, 2, 9, 6]):
     """
     digits = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine"}
     return [digits[n] for n in sorted(nums, reverse=True) if n in digits]
-assert sat158(sol158())
+# assert sat158(sol158())
 
 def sat159(li: List[int], n=100):
     assert len(li) == n
@@ -179,5 +179,5 @@ def sol159(n=100):
         ans.append(m)
 
     return ans
-assert sat159(sol159())
+# assert sat159(sol159())
 

@@ -9,7 +9,7 @@ def sol220(trips=[[1, 1, 0], [1, 0, 0], [0, 0, 0], [0, 1, 1], [0, 1, 1], [1, 1, 
     False for each other list.
     """
     return [sum(s) >= 2 for s in trips]
-assert sat220(sol220())
+# assert sat220(sol220())
 
 def sat221(n: int, scores=[100, 95, 80, 70, 65, 9, 9, 9, 4, 2, 1], k=6):
     assert all(scores[i] >= scores[i + 1] for i in range(len(scores) - 1)), "Hint: scores are non-decreasing"
@@ -21,7 +21,7 @@ def sol221(scores=[100, 95, 80, 70, 65, 9, 9, 9, 4, 2, 1], k=6):
     """
     threshold = max(scores[k], 1)
     return sum(s >= threshold for s in scores)
-assert sat221(sol221())
+# assert sat221(sol221())
 
 def sat222(t: str, s="Problems"):
     i = 0
@@ -45,7 +45,7 @@ def sol222(s="Problems"):
     .p.r.b.l.m.s
     """
     return "".join("." + c for c in s.lower() if c not in "aeiouy")
-assert sat222(sol222())
+# assert sat222(sol222())
 
 def sat223(squares: List[List[int]], m=10, n=5, target=50):
     covered = []
@@ -64,7 +64,7 @@ def sol223(m=10, n=5, target=50):
         ans = [[i, j, i + 1, j] for i in range(1, m, 2) for j in range(n)]
         ans += [[0, j, 0, j + 1] for j in range(0, n - 1, 2)]
     return ans
-assert sat223(sol223())
+# assert sat223(sol223())
 
 def sat224(n: int, ops=['x++', '--x', '--x'], target=19143212):
     for op in ops:
@@ -87,7 +87,7 @@ def sol224(ops=['x++', '--x', '--x'], target=19143212):
     13
     """
     return target - ops.count("++x") - ops.count("x++") + ops.count("--x") + ops.count("x--")
-assert sat224(sol224())
+# assert sat224(sol224())
 
 def sat225(n: int, s="aaAab", t="aAaaB"):
     if n == 0:
@@ -104,7 +104,7 @@ def sol225(s="aaAab", t="aAaaB"):
     if s.lower() > t.lower():
         return 1
     return -1
-assert sat225(sol225())
+# assert sat225(sol225())
 
 def sat226(s: str, matrix=[[0, 0, 0, 0, 0], [0, 0, 0, 0, 1], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], max_moves=3):
     matrix = [m[:] for m in matrix]  # copy
@@ -147,14 +147,14 @@ def sol226(matrix=[[0, 0, 0, 0, 0], [0, 0, 0, 0, 1], [0, 0, 0, 0, 0], [0, 0, 0, 
         ans += "abcde"[j]
         j += 1
     return ans
-assert sat226(sol226())
+# assert sat226(sol226())
 
 def sat227(s: str, inp="1+1+3+1+3+2+2+1+3+1+2"):
     return all(s.count(c) == inp.count(c) for c in inp + s) and all(s[i - 2] <= s[i] for i in range(2, len(s), 2))
 def sol227(inp="1+1+3+1+3+2+2+1+3+1+2"):
     """Sort numbers in a sum of digits, e.g., 1+3+2+1 -> 1+1+2+3"""
     return "+".join(sorted(inp.split("+")))
-assert sat227(sol227())
+# assert sat227(sol227())
 
 def sat228(s: str, word="konjac"):
     for i in range(len(word)):
@@ -168,7 +168,7 @@ def sat228(s: str, word="konjac"):
 def sol228(word="konjac"):
     """Capitalize the first letter of word"""
     return word[0].upper() + word[1:]
-assert sat228(sol228())
+# assert sat228(sol228())
 
 def sat229(t: str, s="abbbcabbac", target=7):
     i = 0
@@ -190,5 +190,5 @@ def sol229(s="abbbcabbac", target=7):
     """
     # target is ignored
     return s[:1] + "".join([b for a, b in zip(s, s[1:]) if b != a])
-assert sat229(sol229())
+# assert sat229(sol229())
 

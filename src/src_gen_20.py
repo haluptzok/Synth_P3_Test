@@ -10,7 +10,7 @@ def sol200(a=[1, 0, -17, 42, 321, 36, 429, 35, 10, 923, 35, 18, 0, 17, 24, 32, 8
     """
     n = len(a)
     return [[i, j, k] for k in range(2, n) for j in range(k) for i in range(j) if (a[i] + a[j] + a[k]) % 3 == 0]
-assert sat200(sol200())
+# assert sat200(sol200())
 
 def sat201(planets_between: List[str], a="Mars", b="Neptune"):
     assert " " not in "".join(planets_between)
@@ -22,7 +22,7 @@ def sol201(a="Mars", b="Neptune"):
     """
     planets = "Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto".split()
     return planets[planets.index(a) + 1:planets.index(b)]
-assert sat201(sol201())
+# assert sat201(sol201())
 
 def sat202(evens: List[str], words=['The', 'worm', 'ate', 'a', 'bird', 'imagine', 'that', '!', 'Absurd', '!!']):
     lens = [len(w) for w in evens]
@@ -34,7 +34,7 @@ def sol202(words=['The', 'worm', 'ate', 'a', 'bird', 'imagine', 'that', '!', 'Ab
     ["soup", "not", "splendid"] => ["soup", "splendid"]
     """
     return sorted([w for w in words if len(w) % 2 == 0], key=lambda w: (len(w), w))
-assert sat202(sol202())
+# assert sat202(sol202())
 
 def sat203(neighbors: List[int], nums=[14, 7, 11, 13, 7, 4, 19, 2, 55, 13, 31, 14, 2, 9, -7, 0, 88, 13, 13]):
 
@@ -58,7 +58,7 @@ def sol203(nums=[14, 7, 11, 13, 7, 4, 19, 2, 55, 13, 31, 14, 2, 9, -7, 0, 88, 13
         n for i, n in enumerate(nums)
         if (i > 0 and prime(nums[i - 1])) or (i < len(nums) - 1 and prime(nums[i + 1]))
     })
-assert sat203(sol203())
+# assert sat203(sol203())
 
 def sat204(tot: int, xs=[123.0, 872322.0, 542.2, -127.5, 18214.0, 3732.4, 12832.4, 23523800.0]):
     for x in xs:
@@ -72,7 +72,7 @@ def sol204(xs=[123.0, 872322.0, 542.2, -127.5, 18214.0, 3732.4, 12832.4, 2352380
     [2.0, 3.0, 2.5, 4.0] => 20
     """
     return sum(int(x) ** 2 for x in xs if x.is_integer() and x > 0 and x % 2 == 0)
-assert sat204(sol204())
+# assert sat204(sol204())
 
 def sat205(b: List[int], a=[1, 2, 3, 0, 4, 17, 2, 4, 5, 9, 8, 4], c=[1, 2, 3, 4, 0, 16, 2, 3, 5, 9, 8, 4]):
     return len(b) == len(a) and all(i + j == k for i, j, k in zip(a, b, c))
@@ -82,7 +82,7 @@ def sol205(a=[1, 2, 3, 0, 4, 17, 2, 4, 5, 9, 8, 4], c=[1, 2, 3, 4, 0, 16, 2, 3, 
     [1, 2, 3], [4, 17, 5] => [3, 15, 2]
     """
     return [k - i for i, k in zip(a, c)]
-assert sat205(sol205())
+# assert sat205(sol205())
 
 def sat206(s: str, class_name="TestClass", extensions=['extEnd', 'LOL', 'SuPeRbLy', 'v9ACLQWTEW', 'PickMe', 'AI']):
     assert s.startswith(class_name + ".")
@@ -110,7 +110,7 @@ def sol206(class_name="TestClass", extensions=['extEnd', 'LOL', 'SuPeRbLy', 'v9A
         return tot
 
     return class_name + "." + max(extensions, key=case_delta)
-assert sat206(sol206())
+# assert sat206(sol206())
 
 def sat207(r: str, s="light star", t="I love to look at the starlight!"):
     return r in t and len(r) == len(s) and r in s + s
@@ -124,7 +124,7 @@ def sol207(s="light star", t="I love to look at the starlight!"):
     "ttes"
     """
     return next(s[i:] + s[:i] for i in range(len(s)) if s[i:] + s[:i] in t)
-assert sat207(sol207())
+# assert sat207(sol207())
 
 def sat208(n: int, evens=17, odds=3):
     for c in str(n):
@@ -138,7 +138,7 @@ def sol208(evens=17, odds=3):
 
     evens=3, odds=4 => 2381695"""
     return int("2" * evens + "1" * odds)
-assert sat208(sol208())
+# assert sat208(sol208())
 
 def sat209(roman: str, n=2414):
     key = {1000: 'm', 900: 'cm', 500: 'd', 400: 'cd',
@@ -167,5 +167,5 @@ def sol209(n=2414):
             roman += s
             n -= i
     return roman
-assert sat209(sol209())
+# assert sat209(sol209())
 

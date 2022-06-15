@@ -21,7 +21,7 @@ def sol90(orig=[1, 6, 3, 41, 19, 4, 12, 3, 18, 5, -29, 0, 19521]):
         if i < len(odds):
             ans.append(odds[i])
     return ans
-assert sat90(sol90())
+# assert sat90(sol90())
 
 def sat91(s: str, target="Hello world"):
 
@@ -44,7 +44,7 @@ def sol91(target="Hello world"):
         return trip if len(trip) != 3 else trip[1:3] + trip[0]
 
     return "".join(un_cycle3(target[i: i + 3]) for i in range(0, len(target), 3))
-assert sat91(sol91())
+# assert sat91(sol91())
 
 def sat92(n: int, lower=123456):
     assert any((i ** 0.5).is_integer() for i in [5 * n * n - 4, 5 * n * n + 4]), "n must be a Fibonacci number"
@@ -65,7 +65,7 @@ def sol92(lower=123456):
         m, n = n, (m + n)
         if n > lower and all(n % i for i in range(2, int(n ** 0.5) + 1)):
             return n
-assert sat92(sol92())
+# assert sat92(sol92())
 
 def sat93(inds: List[int], nums=[12, 6, 41, 15, -10452, 18242, 10440, 6, 6, 6, 6]):
     return len(inds) == 3 and sum(nums[i] for i in inds) == 0
@@ -88,7 +88,7 @@ def sol93(nums=[12, 6, 41, 15, -10452, 18242, 10440, 6, 6, 6, 6]):
             j, m = next((j, m) for j, m in enumerate(nums) if (-m - n) in inv)
             k = inv[-m - n]
             return sorted([i, j, k])
-assert sat93(sol93())
+# assert sat93(sol93())
 
 def sat94(count: int, n=981):
     for i in range(n):
@@ -107,7 +107,7 @@ def sol94(n=981):
     4
     """
     return n ** 2
-assert sat94(sol94())
+# assert sat94(sol94())
 
 def sat95(new_list: List[int], old_list=[321, 12, 532, 129, 9, -12, 4, 56, 90, 0]):
     return [i - 1 for i in new_list] == old_list
@@ -122,7 +122,7 @@ def sol95(old_list=[321, 12, 532, 129, 9, -12, 4, 56, 90, 0]):
     [18, 16, 100]
     """
     return [i + 1 for i in old_list]
-assert sat95(sol95())
+# assert sat95(sol95())
 
 def sat96(inds: List[int], nums=[12, -10452, 18242, 10440, 81, 241, 525, -18242, 91, 20]):
     a, b = inds
@@ -141,7 +141,7 @@ def sol96(nums=[12, -10452, 18242, 10440, 81, 241, 525, -18242, 91, 20]):
     for i in s:
         if -i in s:
             return [nums.index(i), nums.index(-i)]
-assert sat96(sol96())
+# assert sat96(sol96())
 
 def sat97(s: str, n=142, base=7):
     return int(s, base) == n
@@ -161,7 +161,7 @@ def sol97(n=142, base=7):
         ans = str(n % base) + ans
         n //= base
     return ans or "0"
-assert sat97(sol97())
+# assert sat97(sol97())
 
 def sat98(height: int, area=1319098728582, base=45126):
     return base * height == 2 * area
@@ -176,7 +176,7 @@ def sol98(area=1319098728582, base=45126):
     4
     """
     return (2 * area) // base
-assert sat98(sol98())
+# assert sat98(sol98())
 
 def sat99(init: List[int], target=2021):
     a, b, c, d = init
@@ -200,5 +200,5 @@ def sol99(target=2021):
         x = nums[3] - sum(nums[:3])  # x is such that x + nums[:3] == nums[3]
         nums = [x] + nums[:3]
     return nums
-assert sat99(sol99())
+# assert sat99(sol99())
 

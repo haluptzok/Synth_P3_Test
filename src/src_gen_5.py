@@ -40,7 +40,7 @@ def sol50(capacities=[8, 5, 3], init=[8, 0, 0], goal=[4, 4, 0]):
         move, state = trails[state]
         ans.append(move)
     return ans[::-1]
-assert sat50(sol50())
+# assert sat50(sol50())
 
 def sat51(li: List[int], words=['SEND', 'MORE', 'MONEY']):
     assert len(li) == len(words) and all(i > 0 and len(str(i)) == len(w) for i, w in zip(li, words))
@@ -114,7 +114,7 @@ def sol51(words=['SEND', 'MORE', 'MONEY']):
 
     assert helper(0, 0)
     return [int("".join(str(pi[order[c]]) for c in w)) for w in words]
-assert sat51(sol51())
+# assert sat51(sol51())
 
 def sat52(moves: List[int], start=[[5, 0, 2, 3], [1, 9, 6, 7], [4, 14, 8, 11], [12, 13, 10, 15]]):
 
@@ -208,7 +208,7 @@ def sol52(start=[[5, 0, 2, 3], [1, 9, 6, 7], [4, 14, 8, 11], [12, 13, 10, 15]]):
                 f[s2] = score2
                 todo.add(s2)
                 heapq.heappush(heap, (score2, s2))
-assert sat52(sol52())
+# assert sat52(sol52())
 
 def sat53(pair: List[float], nums=[0.17, 21.3, 5.0, 9.0, 11.0, 4.99, 17.0, 17.0, 12.4, 6.8]):
     a, b = pair
@@ -226,7 +226,7 @@ def sol53(nums=[0.17, 21.3, 5.0, 9.0, 11.0, 4.99, 17.0, 17.0, 12.4, 6.8]):
     """
     s = sorted(set(nums))
     return min([[a, b] for a, b in zip(s, s[1:])], key=lambda x: x[1] - x[0])
-assert sat53(sol53())
+# assert sat53(sol53())
 
 def sat54(ls: List[str], combined="() (()) ((() () ())) (() )"):
     for s in ls:
@@ -258,7 +258,7 @@ def sol54(combined="() (()) ((() () ())) (() )"):
                 ans.append(cur)
                 cur = ''
     return ans
-assert sat54(sol54())
+# assert sat54(sol54())
 
 def sat55(x: float, v=523.12892):
     return 0 <= x < 1 and (v - x).is_integer()
@@ -273,7 +273,7 @@ def sol55(v=523.12892):
     0.175
     """
     return v % 1.0
-assert sat55(sol55())
+# assert sat55(sol55())
 
 def sat56(firsts: List[int], balances=[[2, 7, -2, 4, 3, -15, 10, -45, 3], [3, 4, -17, -1], [100, -100, -101], [-1]]):
     for i, bals in enumerate(balances):
@@ -303,7 +303,7 @@ def sol56(balances=[[2, 7, -2, 4, 3, -15, 10, -45, 3], [3, 4, -17, -1], [100, -1
                 firsts.append(total)
                 break
     return firsts
-assert sat56(sol56())
+# assert sat56(sol56())
 
 def sat57(x: float, nums=[12, -2, 14, 3, -15, 10, -45, 3, 30]):
     return sum((n - x) ** 2 for n in nums) * len(nums) <= sum((m - n) ** 2 for m in nums for n in nums) * .5 + 1e-4
@@ -318,7 +318,7 @@ def sol57(nums=[12, -2, 14, 3, -15, 10, -45, 3, 30]):
     17.14285
     """
     return sum(nums) / len(nums)  # mean minimizes mean squared deviation
-assert sat57(sol57())
+# assert sat57(sol57())
 
 def sat58(li: List[int], nums=[12, 23, -2, 5, 0], sep=4):
     return li[::2] == nums and li[1::2] == [sep] * (len(nums) - 1)
@@ -336,7 +336,7 @@ def sol58(nums=[12, 23, -2, 5, 0], sep=4):
     ans = [sep] * (2 * len(nums) - 1)
     ans[::2] = nums
     return ans
-assert sat58(sol58())
+# assert sat58(sol58())
 
 def sat59(depths: List[int], parens="() (()) ((()()())) (((((((())))))))"):
     groups = parens.split()
@@ -380,5 +380,5 @@ def sol59(parens="() (()) ((()()())) (((((((())))))))"):
         return m
 
     return [max_depth(s) for s in parens.split()]
-assert sat59(sol59())
+# assert sat59(sol59())
 

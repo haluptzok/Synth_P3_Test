@@ -16,7 +16,7 @@ def sol340(year_len=365):
         best = min(best, (abs(0.5 - distinct_prob), n))
 
     return best[1]
-assert sat340(sol340())
+# assert sat340(sol340())
 
 def sat341(n: int, year_len=365):
     import random
@@ -35,7 +35,7 @@ def sol341(year_len=365):
         best = min(best, (abs(0.5 - distinct_prob), n))
 
     return best[1]
-assert sat341(sol341())
+# assert sat341(sol341())
 
 def sat342(counts: List[int], target_prob=0.5):
     m, n = counts  # m = num 1's, n = num -1's
@@ -60,7 +60,7 @@ def sol342(target_prob=0.5):
         n = round(m * (1 - target_prob) / (1 + target_prob))
         if abs(target_prob - (m - n) / (m + n)) < 1e-6:
             return [m, n]
-assert sat342(sol342())
+# assert sat342(sol342())
 
 def sat343(counts: List[int], p=0.5, target_prob=0.0625):
     from itertools import product
@@ -78,7 +78,7 @@ def sol343(p=0.5, target_prob=0.0625):
         answers = [i for i, p in enumerate(probs) if abs(p - target_prob) < 1e-6]
         if answers:
             return [answers[0], len(probs) - 1 - answers[0]]
-assert sat343(sol343())
+# assert sat343(sol343())
 
 def sat344(p_stop: float, steps=10, target_prob=0.5):
     prob = sum(p_stop*(1-p_stop)**t for t in range(steps))
@@ -89,28 +89,28 @@ def sol344(steps=10, target_prob=0.5):
     stop each step with probability p_stop
     """
     return 1 - (1 - target_prob) ** (1.0/steps)
-assert sat344(sol344())
+# assert sat344(sol344())
 
 def sat345(s: str):
     return s[::-1] + 'world' == 'Hello world'
 def sol345():
     """Find a string that when reversed and concatenated onto 'world' gives 'Hello world'."""
     return ' olleH'
-assert sat345(sol345())
+# assert sat345(sol345())
 
 def sat346(st: str, a="world", b="Hello world"):
     return st + a == b
 def sol346(a="world", b="Hello world"):
     """Solve simple string addition problem."""
     return b[:len(b) - len(a)]
-assert sat346(sol346())
+# assert sat346(sol346())
 
 def sat347(s: str, dups=2021):
     return len(set(s)) == len(s) - dups
 def sol347(dups=2021):
     """Find a string with dups duplicate chars"""
     return "a" * (dups + 1)
-assert sat347(sol347())
+# assert sat347(sol347())
 
 def sat348(s: str, target="foofoofoofoo", n=2):
     return s * n == target
@@ -119,7 +119,7 @@ def sol348(target="foofoofoofoo", n=2):
     if n == 0:
         return ''
     return target[:len(target) // n]
-assert sat348(sol348())
+# assert sat348(sol348())
 
 def sat349(n: int, target="foofoofoofoo", s="foofoo"):
     return s * n == target
@@ -128,5 +128,5 @@ def sol349(target="foofoofoofoo", s="foofoo"):
     if len(s) == 0:
         return 1
     return len(target) // len(s)
-assert sat349(sol349())
+# assert sat349(sol349())
 
